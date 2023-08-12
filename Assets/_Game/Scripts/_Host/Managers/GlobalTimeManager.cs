@@ -1,5 +1,7 @@
+using Shapes;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GlobalTimeManager : MonoBehaviour
@@ -20,6 +22,9 @@ public class GlobalTimeManager : MonoBehaviour
     public bool questionClockRunning;
     [ShowOnly] public float elapsedTime;
 
+    public TextMeshPro currentQTimeMesh;
+    public Disc currentQAnim;
+
     private void Update()
     {
         if (questionClockRunning)
@@ -31,6 +36,8 @@ public class GlobalTimeManager : MonoBehaviour
     void QuestionTimer()
     {
         elapsedTime += (1f * Time.deltaTime);
+        currentQTimeMesh.text = GetSecondsPerQuestionRemaining(currentQAnim.AngRadiansEnd * 57.2958f).ToString("#0");
+        Debug.Log(currentQAnim.AngRadiansEnd);
     }
 
     public float GetRawTimestamp()
@@ -41,5 +48,10 @@ public class GlobalTimeManager : MonoBehaviour
     public string GetFormattedTimestamp()
     {
         return elapsedTime.ToString("#0.00");
+    }
+    
+    public float GetSecondsPerQuestionRemaining(float animationAngle)
+    {
+        return Mathf.FloorToInt((animationAngle - 90) / 24);
     }
 }

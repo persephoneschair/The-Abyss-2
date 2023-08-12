@@ -6,21 +6,12 @@ using UnityEngine.UI;
 
 public class GlobalLeaderboardStrap : MonoBehaviour
 {
-    private int _position;
-    public int Position
-    {
-        get { return _position; }
-        set
-        {
-            _position = value;
-            SetUpStrap();
-        }
-    }
+    public Vector3 startPos;
+    public PlayerObject containedPlayer;
 
-    public TextMeshProUGUI posMesh;
     public TextMeshProUGUI playerNameMesh;
     public TextMeshProUGUI totalCorrectMesh;
-    public TextMeshProUGUI maxPointsMesh;
+    public RawImage avatarRend;
 
     public Image borderRend;
     public Image backgroundRend;
@@ -28,24 +19,54 @@ public class GlobalLeaderboardStrap : MonoBehaviour
     public Color[] borderCols;
     public Color[] backgroundCols;
 
+    private Vector3 targetPosition;
+    private float elapsedTime = 0;
 
     public void SetUpStrap()
     {
-        int index = Position > 2 ? 2 : Position;
-        borderRend.color = borderCols[index];
-        backgroundRend.color = backgroundCols[index];
-
-        posMesh.text = Extensions.AddOrdinal(Position + 1);
+        startPos = GetComponent<RectTransform>().localPosition;
+        targetPosition = startPos;
+        playerNameMesh.text = "";
+        totalCorrectMesh.text = "";
+        gameObject.SetActive(false);
     }
 
-    public void PopulateStrap(PlayerObject pl)
+    public void PopulateStrap(PlayerObject pl, bool isClone)
     {
+        //Flicker to life?
+        gameObject.SetActive(true);
+        containedPlayer = pl;
         playerNameMesh.text = pl.playerName;
-        totalCorrectMesh.text = pl.totalCorrect.ToString();
+        avatarRend.texture = pl.profileImage;
+        totalCorrectMesh.text = pl.points.ToString();
+        if (!isClone)
+            pl.strap = this;
+        else
+            pl.cloneStrap = this;
     }
 
-    public void KillStrap()
+    public void SetBackgroundColor(bool hotseat)
     {
-        posMesh.text = "";
+        backgroundRend.color = hotseat ? backgroundCols[0] : backgroundCols[1];
+        borderRend.color = hotseat ? borderCols[0] : borderCols[1];
+    }
+
+    public void MoveStrap(Vector3 targetPos, int i)
+    {
+        //playerNameMesh.text = (i + 1).ToString();
+        targetPosition = targetPos;
+        elapsedTime = 0;
+    }
+
+    public void Update()
+    {
+        LerpStraps();
+    }
+
+    private void LerpStraps()
+    {
+        elapsedTime += Time.deltaTime * 1f;
+        float percentageComplete = elapsedTime / LeaderboardManager.Get.reorderDuration;
+        this.gameObject.transform.localPosition = Vector3.Lerp(this.gameObject.transform.localPosition, targetPosition, Mathf.SmoothStep(0, 1, percentageComplete));
     }
 }

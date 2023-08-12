@@ -60,7 +60,7 @@ public class GameplayPennys : MonoBehaviour
 
     private void AwardPennys()
     {
-        List<PlayerObject> list = PlayerManager.Get.players.OrderByDescending(p => p.totalCorrect).ThenBy(p => p.twitchName).Where(x => x.points > 0).ToList();
+        List<PlayerObject> list = PlayerManager.Get.players.OrderByDescending(p => p.points).ThenBy(p => p.twitchName).Where(x => x.points > 0).ToList();
         PlayerPennyData ppd;
 
         LoadJSON();
@@ -71,8 +71,8 @@ public class GameplayPennys : MonoBehaviour
                 CreateNewPlayer(p);
             else
             {
-                ppd.CurrentSeasonPennys += (p.totalCorrect * multiplyFactor);
-                ppd.AllTimePennys += (p.totalCorrect * multiplyFactor);
+                ppd.CurrentSeasonPennys += (p.points * multiplyFactor);
+                ppd.AllTimePennys += (p.points * multiplyFactor);
             }
         }
 
@@ -90,10 +90,10 @@ public class GameplayPennys : MonoBehaviour
 
     private void AwardMedals()
     {
-        List<PlayerObject> topTwo = PlayerManager.Get.players.Where(x => !x.eliminated).OrderByDescending(x => x.points).ToList();
+        List<PlayerObject> topTwo = PlayerManager.Get.players.Where(x => x.inHotseat).OrderByDescending(x => x.points).ToList();
         LoadMedalJSON();
 
-        if(topTwo.Count == 2)
+        /*if(topTwo.Count == 2)
         {
             medalList.goldMedallists.Add(topTwo[0].twitchName.ToLowerInvariant());
             medalList.silverMedallists.Add(topTwo[1].twitchName.ToLowerInvariant());
@@ -101,7 +101,7 @@ public class GameplayPennys : MonoBehaviour
 
         List<PlayerObject> lobbyOrdered = PlayerManager.Get.players.Where(x => x.eliminated).OrderByDescending(x => x.totalCorrect).ToList();
         foreach(PlayerObject player in lobbyOrdered.Where(x => x.totalCorrect == lobbyOrdered[0].totalCorrect))
-            medalList.lobbyMedallists.Add(player.twitchName.ToLowerInvariant());
+            medalList.lobbyMedallists.Add(player.twitchName.ToLowerInvariant());*/
     }
 
     private void CreateNewPlayer(PlayerObject p)
@@ -109,8 +109,8 @@ public class GameplayPennys : MonoBehaviour
         PlayerPennyData newP = new PlayerPennyData()
         {
             PlayerName = p.twitchName.ToLowerInvariant(),
-            CurrentSeasonPennys = (p.totalCorrect * multiplyFactor),
-            AllTimePennys = (p.totalCorrect * multiplyFactor)
+            CurrentSeasonPennys = (p.points * multiplyFactor),
+            AllTimePennys = (p.points * multiplyFactor)
         };
         playerList.playerList.Add(newP);
     }

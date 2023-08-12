@@ -10,7 +10,7 @@ using Control;
 public class GameplayManager : MonoBehaviour
 {
     [Header("Rounds")]
-    public RoundBase[] rounds;
+    public Round[] rounds;
 
     [Header("Question Data")]
     public static int nextQuestionIndex = 0;
@@ -22,18 +22,15 @@ public class GameplayManager : MonoBehaviour
         LockLobby,
         RevealInstructions,
         HideInstructions,
-        RunQuestion,
+        RunSection,
 
-        ResetPostQuestion,
-        DisplayFinalLeaderboard,
-        HideFinalLeaderboard,
         RollCredits,
         DoNothing
     };
     public GameplayStage currentStage = GameplayStage.DoNothing;
 
-    public enum Round { None };
-    public Round currentRound = Round.None;
+    public enum RoundType { None, MainGame, FinalGame };
+    public RoundType currentRound = RoundType.None;
     public int roundsPlayed = 0;
 
     #region Init
@@ -72,16 +69,7 @@ public class GameplayManager : MonoBehaviour
             case GameplayStage.HideInstructions:
                 break;
 
-            case GameplayStage.RunQuestion:
-                break;
-
-            case GameplayStage.ResetPostQuestion:
-                break;
-
-            case GameplayStage.DisplayFinalLeaderboard:
-                break;
-
-            case GameplayStage.HideFinalLeaderboard:
+            case GameplayStage.RunSection:
                 break;
 
             case GameplayStage.RollCredits:

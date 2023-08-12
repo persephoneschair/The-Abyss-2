@@ -38,9 +38,8 @@ public static class SaveManager
         pl.playerName = playerObject.playerName;
         pl.playerClientID = playerObject.playerClientID;
         pl.twitchName = playerObject.twitchName;
-        pl.eliminated = playerObject.eliminated;
+        pl.inHotseat = playerObject.inHotseat;
         pl.points = playerObject.points;
-        pl.totalCorrect = playerObject.totalCorrect;
         return pl;
     }
 
@@ -62,10 +61,9 @@ public static class SaveManager
         {
             po.playerName = rc.playerName;
             po.twitchName = rc.twitchName;
-            po.eliminated = rc.eliminated;
+            po.inHotseat = rc.inHotseat;
 
             po.points = rc.points;
-            po.totalCorrect = rc.totalCorrect;
         }
     }
 

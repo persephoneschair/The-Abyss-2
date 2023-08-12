@@ -65,6 +65,10 @@ public class ClientManager : MonoBehaviour
                 ClientMainGame.Get.NewInstanceOpened();
                 break;
 
+            case EventLibrary.HostEventType.Leaderboard:
+                ClientMainGame.Get.UpdateLeaderboard(data);
+                break;
+
             default:
                 break;
         }

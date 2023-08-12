@@ -36,7 +36,7 @@ public class ClientLandingPageManager : MonoBehaviour
     public TextMeshProUGUI alertButtonText;
 
     [Header("OTP Fields")]
-    private readonly string otpMessage = "Please whisper [ABCD] to <color=yellow>persephones_twitch_bot</color> from the Twitch chat to validate your account";
+    private readonly string otpMessage = "Please whisper <color=green>[ABCD]</color> to <color=yellow>persephones_twitch_bot</color> from the Twitch chat to validate your account";
     public GameObject otpAlert;
     public TextMeshProUGUI otpMesh;
 
@@ -111,7 +111,7 @@ public class ClientLandingPageManager : MonoBehaviour
         //Default [0] is player name
         //Default [1] is player points
         otpAlert.SetActive(false);
-        ClientMainGame.Get.Initialise();
+        ClientMainGame.Get.Initialise(otpArr);
         this.gameObject.SetActive(false);
     }
 }

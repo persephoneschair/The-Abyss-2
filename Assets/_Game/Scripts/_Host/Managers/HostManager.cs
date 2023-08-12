@@ -50,8 +50,8 @@ public class HostManager : MonoBehaviour
             else
             {
                 pl.otp = "";
-                pl.podium.containedPlayer = null;
-                pl.podium = null;
+                //pl.podium.containedPlayer = null;
+                //pl.podium = null;
                 pl.playerClientRef = null;
                 pl.playerName = "";
                 PlayerManager.Get.players.Remove(pl);
@@ -112,6 +112,25 @@ public class HostManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void UpdateClientLeaderboards()
+    {
+        List<PlayerObject> lb = PlayerManager.Get.players.OrderByDescending(x => x.points).ThenBy(x => x.playerName).ToList();
+
+        string payload = "";
+        for (int i = 0; i < lb.Count; i++)
+        {
+            string sc = lb[i].points.ToString();
+            string hs = lb[i].inHotseat ? "TRUE" : "FALSE";
+
+            payload += $"{lb[i].playerName.ToUpperInvariant()}|{sc}|{hs}";
+            if (i + 1 != lb.Count)
+                payload += "¬";
+        }
+
+        foreach (PlayerObject pl in lb)
+            SendPayloadToClient(pl, EventLibrary.HostEventType.Leaderboard, payload);
     }
 
     #endregion

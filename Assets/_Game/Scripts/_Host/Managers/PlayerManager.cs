@@ -39,12 +39,10 @@ public class PlayerManager : MonoBehaviour
                 playerName = value.playerName;
                 twitchName = value.twitchName;
                 profileImage = value.profileImage;
-                flagForCondone = value.flagForCondone;
                 wasCorrect = value.wasCorrect;
-                eliminated = value.eliminated;
+                inHotseat = value.inHotseat;
 
                 points = value.points;
-                totalCorrect = value.totalCorrect;
                 submission = value.submission;
                 submissionTime = value.submissionTime;
             }
@@ -53,14 +51,10 @@ public class PlayerManager : MonoBehaviour
                 playerName = "OUT OF RANGE";
                 twitchName = "OUT OF RANGE";
                 profileImage = null;
-                flagForCondone = false;
                 wasCorrect = false;
-                eliminated = false;
+                inHotseat = false;
 
                 points = 0;
-                totalCorrect = 0;
-                currentBid = 0;
-                maxPoints = 0;
                 submission = "OUT OF RANGE";
                 submissionTime = 0;
             }                
@@ -71,15 +65,11 @@ public class PlayerManager : MonoBehaviour
     [ShowOnly] public string playerName;
     [ShowOnly] public string twitchName;
     public Texture profileImage;
-    [ShowOnly] public bool flagForCondone;
     [ShowOnly] public bool wasCorrect;
-    [ShowOnly] public bool eliminated;
+    [ShowOnly] public bool inHotseat;
 
     [Header("Variable Fields")]
     public int points;
-    public int totalCorrect;
-    public int currentBid;
-    public int maxPoints;
     public string submission;
     public float submissionTime;
 
@@ -117,7 +107,6 @@ public class PlayerManager : MonoBehaviour
     void SetDataBack()
     {
         FocusPlayer.points = points;
-        FocusPlayer.totalCorrect = totalCorrect;
         FocusPlayer.submission = submission;
         FocusPlayer.submissionTime = submissionTime;
         pullingData = true;

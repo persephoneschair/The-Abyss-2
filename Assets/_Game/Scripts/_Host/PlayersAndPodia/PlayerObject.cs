@@ -9,20 +9,19 @@ public class PlayerObject
 {
     public string playerClientID;
     public Player playerClientRef;
-    public Podium podium;
+    public GlobalLeaderboardStrap strap;
+    public GlobalLeaderboardStrap cloneStrap;
     public string otp;
     public string playerName;
 
     public string twitchName;
     public Texture profileImage;
 
-    public bool eliminated;
+    public bool inHotseat;
 
     public int points;
-    public int totalCorrect;
     public string submission;
     public float submissionTime;
-    public bool flagForCondone;
     public bool wasCorrect;
 
     public PlayerObject(Player pl)
@@ -31,8 +30,6 @@ public class PlayerObject
         otp = OTPGenerator.GenerateOTP();
         playerName = pl.Name;
         points = 0;
-        //podium = Podiums.GetPodiums.podia.FirstOrDefault(x => x.containedPlayer == null);
-        //podium.containedPlayer = this;
     }
 
     public void ApplyProfilePicture(string name, Texture tx, bool bypassSwitchAccount = false)
@@ -49,34 +46,27 @@ public class PlayerObject
             oldPlayer.playerClientID = playerClientID;
             oldPlayer.playerClientRef = playerClientRef;
             oldPlayer.playerName = playerName;
-            //oldPlayer.podium.playerNameMesh.text = playerName;
+            oldPlayer.strap.PopulateStrap(oldPlayer, false);
+            oldPlayer.cloneStrap.PopulateStrap(oldPlayer, true);
+            HostManager.Get.SendPayloadToClient(oldPlayer, EventLibrary.HostEventType.Validated, $"{oldPlayer.playerName}|{oldPlayer.points.ToString()}");
 
             otp = "";
-            //podium.containedPlayer = null;
-            //podium = null;
+            strap = null;
+            cloneStrap = null;
             playerClientRef = null;
             playerName = "";
 
             PlayerManager.Get.players.Remove(this);
-            HostManager.Get.SendPayloadToClient(oldPlayer, EventLibrary.HostEventType.Validated, $"{oldPlayer.playerName}|{oldPlayer.points.ToString()}");
-            //HostManager.Get.UpdateLeaderboards();
+            HostManager.Get.UpdateClientLeaderboards();
             return;
         }
         otp = "";
         twitchName = name.ToLowerInvariant();
         profileImage = tx;
-        //podium.avatarRend.material.mainTexture = profileImage;
-        if(!LobbyManager.Get.lateEntry)
-        {
-
-        }
-            //podium.InitialisePodium();
-        else
-        {
-            points = 0;
-            eliminated = true;
-        }
+        points = 0;
+        inHotseat = false;
+        LeaderboardManager.Get.PlayerHasJoined(this);
         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}");
-        //HostManager.GetHost.UpdateLeaderboards();
+        HostManager.Get.UpdateClientLeaderboards();
     }
 }

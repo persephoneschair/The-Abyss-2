@@ -45,9 +45,9 @@ public class BetterBox : MonoBehaviour
 
     [Header("Transform")]
     [OnValueChanged("SetRectTransform")]
-    [Range(0, 1f)] public float xMin = 0.2f;
+    [Range(-1f, 1f)] public float xMin = 0.2f;
     [OnValueChanged("SetRectTransform")]
-    [Range(0, 1f)] public float xMax = 0.4f, yMin = 0.2f, yMax = 0.4f;
+    [Range(-1f, 1f)] public float xMax = 0.4f, yMin = 0.2f, yMax = 0.4f;
 
     #endregion
 

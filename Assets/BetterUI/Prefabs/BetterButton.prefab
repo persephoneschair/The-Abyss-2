@@ -361,7 +361,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Push Me
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2a15eba35a8dfed41bb260f81c92356e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 31c47a77cd1991041b389b2459d59da6, type: 2}
   m_sharedMaterial: {fileID: 3308604542844990766, guid: 2a15eba35a8dfed41bb260f81c92356e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

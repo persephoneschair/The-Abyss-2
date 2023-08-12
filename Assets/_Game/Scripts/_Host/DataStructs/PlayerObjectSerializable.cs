@@ -9,8 +9,7 @@ public class PlayerObjectSerializable
 
     public string twitchName;
 
-    public bool eliminated;
+    public bool inHotseat;
 
     public int points;
-    public int totalCorrect;
 }

@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4eb5caef370380488780066ec3b4fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollRectContent: {fileID: 2270284165997493509}
   straps:
   - {fileID: 5405485506437194449}
   - {fileID: 3115474868622774242}
@@ -480,8 +481,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 67206971312d1b8429cef5dde17c72ee, type: 3}
   - {fileID: 21300000, guid: 992f2d9403ceac843bcf733d74ad81e7, type: 3}
   - {fileID: 21300000, guid: 20c72158511535140ae7d3805e51375a, type: 3}
-  borderColor: {r: 0.0072089583, g: 0.34702852, b: 0.509434, a: 1}
-  boxColorScheme: {r: 0, g: 0.057995602, b: 0.7075472, a: 1}
+  borderColor: {r: 0, g: 0.91764706, b: 1, a: 1}
+  boxColorScheme: {r: 0.08235294, g: 0, b: 0.5372549, a: 1}
   borderThickness: 0
   blockStyle: 3
   pixelsPerUnitMultiplier: 1.5

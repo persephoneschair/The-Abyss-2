@@ -19,8 +19,6 @@ public class LobbyManager : MonoBehaviour
 
     #endregion
 
-    public bool lateEntry;
-
     public TextMeshProUGUI welcomeMessageMesh;
     public Animator lobbyCodeAnim;
     private const string welcomeMessage = "Welcome to the game [ABCD]";
@@ -39,7 +37,6 @@ public class LobbyManager : MonoBehaviour
     [Button]
     public void OnLockLobby()
     {
-        lateEntry = true;
         lobbyCodeAnim.SetTrigger("toggle");
         permaCodeMesh.text = permaMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant());
         Invoke("TogglePermaCode", 1f);

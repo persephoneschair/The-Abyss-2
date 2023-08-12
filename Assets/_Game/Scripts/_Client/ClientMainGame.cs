@@ -21,6 +21,35 @@ public class ClientMainGame : MonoBehaviour
 
     #endregion
 
+    [Header("Top Data Fields")]
+    public GameObject topDataFieldsObj;
+    public TextMeshProUGUI playerNameMesh;
+    public TextMeshProUGUI playerScoreMesh;
+    public TextMeshProUGUI previousFiveMesh;
+    public TextMeshProUGUI submittedAnswerMesh;
+    public TextMeshProUGUI livesOrInactiveMesh;
+
+    [Header("Misc Gameplay Area")]
+    public Animator timerAnim;
+    public bool enterSubmits;
+
+    [Header("Category")]
+    public GameObject catObj;
+    public TextMeshProUGUI catMesh;
+
+    [Header("Question")]
+    public GameObject questionObj;
+    public TextMeshProUGUI questionMesh;
+
+    [Header("Answer Input")]
+    public GameObject ansInputObj;
+    public TMP_InputField ansInput;
+    public Button submitButton;
+
+    [Header("Answer")]
+    public GameObject ansObj;
+    public TextMeshProUGUI ansMesh;
+
     [Header("Leaderboard")]
     public ClientLeaderboardManager leaderboardManager;
 
@@ -30,15 +59,35 @@ public class ClientMainGame : MonoBehaviour
 
     private void Update()
     {
-        /*submitButton.interactable = answerInput.text.Length <= 0 ? false : true;
+        submitButton.interactable = ansInput.text.Length <= 0 ? false : true;
 
-        if (enterSubmits && answerInput.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
-            OnSubmitAnswer();*/
+        if (enterSubmits && ansInput.text.Length > 0 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+            OnSubmitAnswer();
     }
 
-    public void Initialise()
+    public void Initialise(string[] otpArr)
     {
+        playerNameMesh.text = otpArr[0];
+        playerScoreMesh.text = otpArr[1];
+        previousFiveMesh.text = "0/5";
+        livesOrInactiveMesh.text = "IN THE WINGS";
+        timerAnim.gameObject.SetActive(true);
+        leaderboardManager.gameObject.SetActive(true);
+        topDataFieldsObj.gameObject.SetActive(true);
+    }
 
+    public void UpdateLeaderboard(string data)
+    {
+        string[] players = data.Split('¬');
+        for(int i = 0; i < players.Length; i++)
+        {
+            //[0] = Name
+            //[1] = Score
+            //[2] = In hotseat?
+            string[] splitData = players[i].Split('|');
+            leaderboardManager.PopulateStrap(splitData, i);
+        }
+        leaderboardManager.RefreshScrollRect();
     }
 
     public void DisplayCountdown()
