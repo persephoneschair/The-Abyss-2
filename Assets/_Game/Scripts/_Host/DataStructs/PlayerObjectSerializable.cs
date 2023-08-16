@@ -12,4 +12,5 @@ public class PlayerObjectSerializable
     public bool inHotseat;
 
     public int points;
+    public bool[] lastFive;
 }

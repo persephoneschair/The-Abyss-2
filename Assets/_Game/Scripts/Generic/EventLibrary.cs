@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class EventLibrary
 {
-    public enum HostEventType { Default, Validate, Validated, SecondInstance, Leaderboard };
+    public enum HostEventType { Default, Validate, Validated, SecondInstance, Leaderboard, PrepForQuestion, QuestionPacket, AnswerPacket, DataFields, Clear };
     public enum ClientEventType { Default, Answer };
 
     public static string GetHostEventTypeString(HostEventType e)

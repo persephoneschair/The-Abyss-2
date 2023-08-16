@@ -29350,6 +29350,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8611414361926250381, guid: 6ac2c90c02d14fc4dbd32d9e28476c1e, type: 3}
   m_PrefabInstance: {fileID: 1741877027}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1125900599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8611414361926250386, guid: 6ac2c90c02d14fc4dbd32d9e28476c1e, type: 3}
+  m_PrefabInstance: {fileID: 1741877027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125900597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ff1419cda07654ca4e269a716f012b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204906161
 GameObject:
   m_ObjectHideFlags: 0
@@ -29806,14 +29817,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8570ed76fb06d434a8ca0d4df335607b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b533ea476a15c714e87772f4e9b05498, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30076,6 +30087,7 @@ MonoBehaviour:
   submittedAnswerMesh: {fileID: 1613679273}
   livesOrInactiveMesh: {fileID: 451079964}
   timerAnim: {fileID: 894731971}
+  timerObj: {fileID: 4348290218873397445}
   enterSubmits: 0
   catObj: {fileID: 1221371906}
   catMesh: {fileID: 294151099}
@@ -30086,6 +30098,13 @@ MonoBehaviour:
   submitButton: {fileID: 310173492}
   ansObj: {fileID: 1125900597}
   ansMesh: {fileID: 1323912310}
+  ansBetterTextBlock: {fileID: 1125900599}
+  answerBlockBorderCols:
+  - {r: 0, g: 1, b: 0.019607844, a: 1}
+  - {r: 1, g: 0.16078432, b: 0, a: 1}
+  answerBlockBackgroundCols:
+  - {r: 0, g: 0.5372549, b: 0.023529412, a: 1}
+  - {r: 0.65882355, g: 0.023529412, b: 0.08627451, a: 1}
   leaderboardManager: {fileID: 908962769}
   fixedMessageObj: {fileID: 1030187321}
   fixedMessageMesh: {fileID: 1030187320}
@@ -30606,18 +30625,18 @@ PrefabInstance:
     - target: {fileID: 5621415172511184635, guid: a1607b0f936559340860ca53dd845fe0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1501924996}
+      objectReference: {fileID: 1375897150}
     - target: {fileID: 5621415172511184635, guid: a1607b0f936559340860ca53dd845fe0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5621415172511184635, guid: a1607b0f936559340860ca53dd845fe0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPressJoinRoomButton
+      value: OnSubmitAnswer
       objectReference: {fileID: 0}
     - target: {fileID: 5621415172511184635, guid: a1607b0f936559340860ca53dd845fe0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ClientLandingPageManager, Assembly-CSharp
+      value: ClientMainGame, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5621415172511184635, guid: a1607b0f936559340860ca53dd845fe0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

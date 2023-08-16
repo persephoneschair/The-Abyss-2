@@ -22,6 +22,9 @@ public class Operator : MonoBehaviour
     [Header("Quesion Data")]
     public TextAsset questionPack;
 
+    [Range(0, 40)] public int forceUpdateNextQuestionIndex = 0;
+    [ShowOnly] public int nextQuestionIndex = 0;
+
     #region Init
     public static Operator Get { get; private set; }
     private void Awake()
@@ -57,6 +60,17 @@ public class Operator : MonoBehaviour
         EventLogger.PrintLog();
     }
 
+    private void Update()
+    {
+        nextQuestionIndex = QuestionManager.nextQuestionIndex;
+    }
+
+    [Button]
+    public void ForceUpdateNextQuestionIndex()
+    {
+        QuestionManager.nextQuestionIndex = forceUpdateNextQuestionIndex;
+    }
+
     [Button]
     public void ProgressGameplay()
     {
@@ -64,9 +78,9 @@ public class Operator : MonoBehaviour
             GameplayManager.Get.ProgressGameplay();
     }
 
-    [Button]
+    /*[Button]
     public void Save()
     {
         SaveManager.BackUpData();
-    }
+    }*/
 }

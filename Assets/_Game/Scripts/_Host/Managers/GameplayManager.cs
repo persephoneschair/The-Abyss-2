@@ -9,11 +9,7 @@ using Control;
 
 public class GameplayManager : MonoBehaviour
 {
-    [Header("Rounds")]
     public Round[] rounds;
-
-    [Header("Question Data")]
-    public static int nextQuestionIndex = 0;
 
     public enum GameplayStage
     {
@@ -27,7 +23,7 @@ public class GameplayManager : MonoBehaviour
         RollCredits,
         DoNothing
     };
-    public GameplayStage currentStage = GameplayStage.DoNothing;
+    public GameplayStage currentStage = GameplayStage.RunTitles;
 
     public enum RoundType { None, MainGame, FinalGame };
     public RoundType currentRound = RoundType.None;
@@ -52,27 +48,55 @@ public class GameplayManager : MonoBehaviour
         switch (currentStage)
         {
             case GameplayStage.RunTitles:
-                //If in recovery mode, we need to call Restore Players to restore specific player data (client end should be handled by the reload host call)
-                //Also need to call Restore gameplay state to bring us back to where we need to be (skipping titles along the way)
-                //Reveal instructions would probably be a sensible place to go to, though check that doesn't iterate any game state data itself
+                if(Operator.Get.recoveryMode)
+                {
+                    //THIS IS NOT GOING TO WORK IF THE QUESTIONS AREN'T SEEDED IN THE SAME ORDER - try and think of a way around this
+                    Operator.Get.skipOpeningTitles = true;
+                    foreach(PlayerObject p in PlayerManager.Get.players)
+                    {
+                        SaveManager.RestorePlayer(p);
+                    }
+                    SaveManager.RestoreGameplayState();
+                    currentStage = GameplayStage.RevealInstructions;
+                    Operator.Get.recoveryMode = false;
+                }
+                else
+                {
+                    currentStage = GameplayStage.DoNothing;
+                    TitlesManager.Get.RunTitleSequence();
+                }
                 break;
 
             case GameplayStage.OpenLobby:
+                LobbyManager.Get.OnOpenLobby();
+                currentStage++;
                 break;
 
             case GameplayStage.LockLobby:
+                LobbyManager.Get.OnLockLobby();
+                currentStage++;
                 break;
 
             case GameplayStage.RevealInstructions:
+                currentRound++;
+                InstructionsManager.Get.OnShowInstructions();
+                currentStage++;
                 break;
 
             case GameplayStage.HideInstructions:
+                InstructionsManager.Get.OnHideInstructions();
+                currentStage++;
                 break;
 
             case GameplayStage.RunSection:
+                rounds[(int)currentRound - 1].LoadQuestion();
+                currentStage = GameplayStage.DoNothing;
                 break;
 
             case GameplayStage.RollCredits:
+                CreditsManager.Get.RollCredits();
+                //Pennys
+                currentStage++;
                 break;
 
             case GameplayStage.DoNothing:

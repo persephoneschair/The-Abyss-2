@@ -9,17 +9,17 @@ using NaughtyAttributes;
 using System.Linq;
 using TMPro;
 
-public class GameplayPennys : MonoBehaviour
+public class PennyManager : MonoBehaviour
 {
     #region Init
 
-    public static GameplayPennys GetPennys { get; private set; }
+    public static PennyManager Get { get; private set; }
     private void Awake()
     {
-        if (GetPennys != null && GetPennys != this)
+        if (Get != null && Get != this)
             Destroy(this);
         else
-            GetPennys = this;
+            Get = this;
     }
 
     #endregion
@@ -32,6 +32,13 @@ public class GameplayPennys : MonoBehaviour
     public int authorPennys;
     [Range (1, 10)] public int multiplyFactor;
     public string gameName;
+
+    private List<PlayerObject> winningPlayers = new List<PlayerObject>();
+
+    public void ApplyWinnerList(List<PlayerObject> list)
+    {
+        winningPlayers = list;
+    }
 
 
     [Button]

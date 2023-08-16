@@ -1,0 +1,380 @@
+{
+  "author": "royal_flush",
+  "cat1Qs": [
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Pikachu",
+      "validAnswers": [
+        "Pikachu"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Koffing",
+      "validAnswers": [
+        "Koffing"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Charizard",
+      "validAnswers": [
+        "Charizard"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Drowzee",
+      "validAnswers": [
+        "Drowzee"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Gyarados",
+      "validAnswers": [
+        "Gyarados"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Ekans",
+      "validAnswers": [
+        "Ekans"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Lapras",
+      "validAnswers": [
+        "Lapras"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Mr. Mime",
+      "validAnswers": [
+        "Mr. Mime",
+        "Mr Mime",
+        "Mister Mime"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Zapdos",
+      "validAnswers": [
+        "Zapdos"
+      ]
+    },
+    {
+      "category": "Pokémon",
+      "question": "This is a test question; the answer is Mewtwo",
+      "validAnswers": [
+        "Mewtwo"
+      ]
+    }
+  ],
+  "cat2Qs": [
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 25",
+      "validAnswers": [
+        "25"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 177",
+      "validAnswers": [
+        "177"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 42",
+      "validAnswers": [
+        "42"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 15",
+      "validAnswers": [
+        "15"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 95",
+      "validAnswers": [
+        "95"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 456",
+      "validAnswers": [
+        "456"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 77",
+      "validAnswers": [
+        "77"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 7443",
+      "validAnswers": [
+        "7443"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 1000",
+      "validAnswers": [
+        "1000"
+      ]
+    },
+    {
+      "category": "Numbers",
+      "question": "This is a test question; the answer is 5789",
+      "validAnswers": [
+        "5789"
+      ]
+    }
+  ],
+  "cat3Qs": [
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is London",
+      "validAnswers": [
+        "London"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is New York",
+      "validAnswers": [
+        "New York"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Paris",
+      "validAnswers": [
+        "Paris"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Munich",
+      "validAnswers": [
+        "Munich"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Istanbul",
+      "validAnswers": [
+        "Istanbul"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Paphos",
+      "validAnswers": [
+        "Paphos"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Reykyavík",
+      "validAnswers": [
+        "Reykyavík",
+        "Reykyavik"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Canberra",
+      "validAnswers": [
+        "Canberra"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Birmingham",
+      "validAnswers": [
+        "Birmingham"
+      ]
+    },
+    {
+      "category": "Cities",
+      "question": "This is a test question; the answer is Edinburgh",
+      "validAnswers": [
+        "Edinburgh"
+      ]
+    }
+  ],
+  "cat4Qs": [
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is The Abyss",
+      "validAnswers": [
+        "The Abyss",
+        "Abyss"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Buzz Off!",
+      "validAnswers": [
+        "Buzz Off!",
+        "Buzz Off"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is The Escape Artist",
+      "validAnswers": [
+        "The Escape Artist",
+        "Escape Artist"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Distinction!",
+      "validAnswers": [
+        "Distinction!",
+        "Distinction"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Cryptex",
+      "validAnswers": [
+        "Cryptex"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Bidding War",
+      "validAnswers": [
+        "Bidding War"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is The Purge",
+      "validAnswers": [
+        "The Purge",
+        "Purge"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is DangerZone",
+      "validAnswers": [
+        "DangerZone",
+        "Danger Zone"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Face/Off",
+      "validAnswers": [
+        "Face/Off",
+        "Face Off",
+        "FaceOff"
+      ]
+    },
+    {
+      "category": "Persephone's Chair Games",
+      "question": "This is a test question; the answer is Google That!",
+      "validAnswers": [
+        "Google That!",
+        "Google That"
+      ]
+    }
+  ],
+  "cat5Qs": [
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Royal_Flu$h",
+      "validAnswers": [
+        "Royal_Flu$h",
+        "Royal_Flush",
+        "RoyalFlu$h",
+        "RoyalFlush",
+        "Royal Flu$h",
+        "Royal Flush"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Ash",
+      "validAnswers": [
+        "Ash"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Kollo",
+      "validAnswers": [
+        "Kollo"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Score",
+      "validAnswers": [
+        "Score"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Ape",
+      "validAnswers": [
+        "Ape"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Clive",
+      "validAnswers": [
+        "Clive"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Topper",
+      "validAnswers": [
+        "Topper"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Ramsey",
+      "validAnswers": [
+        "Ramsey"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is David J",
+      "validAnswers": [
+        "David J"
+      ]
+    },
+    {
+      "category": "Community Members",
+      "question": "This is a test question; the answer is Inca",
+      "validAnswers": [
+        "Inca"
+      ]
+    }
+  ]
+}

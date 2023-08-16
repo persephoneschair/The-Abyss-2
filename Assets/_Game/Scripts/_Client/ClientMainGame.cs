@@ -31,6 +31,7 @@ public class ClientMainGame : MonoBehaviour
 
     [Header("Misc Gameplay Area")]
     public Animator timerAnim;
+    public GameObject timerObj;
     public bool enterSubmits;
 
     [Header("Category")]
@@ -49,6 +50,9 @@ public class ClientMainGame : MonoBehaviour
     [Header("Answer")]
     public GameObject ansObj;
     public TextMeshProUGUI ansMesh;
+    public BetterTextBlock ansBetterTextBlock;
+    public Color[] answerBlockBorderCols;
+    public Color[] answerBlockBackgroundCols;
 
     [Header("Leaderboard")]
     public ClientLeaderboardManager leaderboardManager;
@@ -69,11 +73,12 @@ public class ClientMainGame : MonoBehaviour
     {
         playerNameMesh.text = otpArr[0];
         playerScoreMesh.text = otpArr[1];
-        previousFiveMesh.text = "0/5";
+        previousFiveMesh.text = "0/0";
         livesOrInactiveMesh.text = "IN THE WINGS";
-        timerAnim.gameObject.SetActive(true);
+        timerObj.SetActive(true);
         leaderboardManager.gameObject.SetActive(true);
         topDataFieldsObj.gameObject.SetActive(true);
+        leaderboardManager.RefreshScrollRect();
     }
 
     public void UpdateLeaderboard(string data)
@@ -87,42 +92,76 @@ public class ClientMainGame : MonoBehaviour
             string[] splitData = players[i].Split('|');
             leaderboardManager.PopulateStrap(splitData, i);
         }
-        leaderboardManager.RefreshScrollRect();
+        //leaderboardManager.RefreshScrollRect();
     }
 
     public void DisplayCountdown()
     {
-
+        timerAnim.SetTrigger("toggle");
     }
 
-    public void DisplayQuestion()
+    public void DisplayQuestion(string[] data)
     {
-
+        timerAnim.SetTrigger("toggle");
+        catObj.SetActive(true);
+        catMesh.text = data[0];
+        questionObj.SetActive(true);
+        questionMesh.text = data[1];
+        ansInputObj.SetActive(true);
+        submitButton.gameObject.SetActive(true);
+        ansInput.ActivateInputField();
+        enterSubmits = true;
     }
 
     public void OnSubmitAnswer()
     {
-        ClientManager.Get.SendPayloadToHost("ANSWER GOES HERE", EventLibrary.ClientEventType.Answer);
+        enterSubmits = false;
+        ansInputObj.SetActive(false);
+        submittedAnswerMesh.text = ansInput.text;
+        submitButton.gameObject.SetActive(false);
+        ClientManager.Get.SendPayloadToHost(ansInput.text, EventLibrary.ClientEventType.Answer);
+        ansInput.text = "";
     }
 
-    public void DisplayResponse(string[] data)
+    public void DisplayAnswer(string[] data)
     {
+        //[0] = Answer;
+        //[1] = WasCorrect as string.ToUpperInvariant();
 
+        ansInputObj.SetActive(false);
+        submitButton.gameObject.SetActive(false);
+        enterSubmits = false;
+        ansObj.SetActive(true);
+        ansMesh.text = data[0];
+        ansBetterTextBlock.blockColorScheme = answerBlockBackgroundCols[data[1] == "TRUE" ? 0 : 1];
+        ansBetterTextBlock.borderColor = answerBlockBorderCols[data[1] == "TRUE" ? 0 : 1];
+        ansBetterTextBlock.GetComponent<Image>().color = answerBlockBackgroundCols[data[1] == "TRUE" ? 0 : 1];
+        ansBetterTextBlock.GetComponentsInChildren<Image>()[1].color = answerBlockBorderCols[data[1] == "TRUE" ? 0 : 1];
     }
 
-    public void DisplayAnswer(string data)
+    public void UpdateDataFields(string[] data)
     {
+        //[0] = LastFive
+        //[1] = Score
+        //[2] = HotseatLives.ToString()
 
-    }
-
-    public void UpdateCurrentScore(string data)
-    {
-
+        previousFiveMesh.text = data[0];
+        playerScoreMesh.text = data[1];
+        livesOrInactiveMesh.text = data[2] == "0" ? "IN THE WINGS" : "LIVES: " + data[2];
     }
 
     public void ResetForNewQuestion()
     {
-        
+        ClearScreen();
+        DisplayCountdown();
+    }
+
+    public void ClearScreen()
+    {
+        catObj.SetActive(false);
+        questionObj.SetActive(false);
+        ansObj.SetActive(false);
+        submittedAnswerMesh.text = "<color=#9f9f9f15>SUBMITTED ANSWER";
     }
 
     public void NewInstanceOpened()

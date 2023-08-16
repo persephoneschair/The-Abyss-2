@@ -18,10 +18,11 @@ public class PlayerObject
     public Texture profileImage;
 
     public bool inHotseat;
+    public int hotseatLives = 0;
 
     public int points;
+    public bool[] lastFive;
     public string submission;
-    public float submissionTime;
     public bool wasCorrect;
 
     public PlayerObject(Player pl)
@@ -30,6 +31,7 @@ public class PlayerObject
         otp = OTPGenerator.GenerateOTP();
         playerName = pl.Name;
         points = 0;
+        lastFive = new bool[5];
     }
 
     public void ApplyProfilePicture(string name, Texture tx, bool bypassSwitchAccount = false)
@@ -64,9 +66,29 @@ public class PlayerObject
         twitchName = name.ToLowerInvariant();
         profileImage = tx;
         points = 0;
+        lastFive = new bool[5];
         inHotseat = false;
+        hotseatLives = 0;
         LeaderboardManager.Get.PlayerHasJoined(this);
         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}");
         HostManager.Get.UpdateClientLeaderboards();
+    }
+
+    public void UpdateSideStraps()
+    {
+        strap.SetBackgroundColor(inHotseat);
+        cloneStrap.SetBackgroundColor(inHotseat);
+    }
+
+    public void AnswerReceived(bool correct, string givenAnswer)
+    {
+        submission = givenAnswer;
+        wasCorrect = correct;
+        DebugLog.Print($"{playerName}: {givenAnswer}", correct ? DebugLog.StyleOption.Italic : DebugLog.StyleOption.Bold, correct ? DebugLog.ColorOption.Green : DebugLog.ColorOption.Red);
+        strap.SetLockedInColor();
+        cloneStrap.SetLockedInColor();
+        var col = ColumnManager.Get.columns.FirstOrDefault(x => x.containedPlayer == this);
+        if (col != null)
+            col.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.StandardColor);
     }
 }

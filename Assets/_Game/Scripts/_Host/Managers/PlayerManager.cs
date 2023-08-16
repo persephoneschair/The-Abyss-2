@@ -44,7 +44,6 @@ public class PlayerManager : MonoBehaviour
 
                 points = value.points;
                 submission = value.submission;
-                submissionTime = value.submissionTime;
             }
             else
             {
@@ -108,7 +107,22 @@ public class PlayerManager : MonoBehaviour
     {
         FocusPlayer.points = points;
         FocusPlayer.submission = submission;
-        FocusPlayer.submissionTime = submissionTime;
         pullingData = true;
+    }
+
+    public PlayerObject SelectARandomPlayer()
+    {
+        List<PlayerObject> playerDraw = new List<PlayerObject>();
+        foreach (PlayerObject p in players.Where(x => !x.inHotseat))
+        {
+            playerDraw.Add(p);
+            for (int i = 0; i < p.lastFive.Count(x => x); i++)
+                playerDraw.Add(p);
+        }
+        if (playerDraw.Count > 0)
+            return playerDraw[UnityEngine.Random.Range(0, playerDraw.Count)];
+
+        else
+            return null;
     }
 }

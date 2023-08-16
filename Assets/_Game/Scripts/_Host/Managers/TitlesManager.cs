@@ -19,6 +19,13 @@ public class TitlesManager : MonoBehaviour
 
     #endregion
 
+    public Animator titlesAnim;
+    public Animator backdropFader;
+    public TextMeshProUGUI titlesMesh;
+    [TextArea(2, 3)] public string[] titlesOptions;
+
+    public GameObject sceneBlocker;
+
     [Button]
     public void RunTitleSequence()
     {
@@ -32,13 +39,26 @@ public class TitlesManager : MonoBehaviour
     }
 
     IEnumerator TitleSequence()
-    {        
-        yield return new WaitForSeconds(0f);
+    {
+        for(int i = 0; i < titlesOptions.Length - 1; i++)
+        {
+            titlesMesh.text = titlesOptions[i];
+            titlesAnim.SetTrigger("toggle");
+            yield return new WaitForSeconds(7.75f);
+        }
+        titlesMesh.text = titlesOptions[titlesOptions.Length-1];
+        titlesAnim.SetTrigger("final");
+        yield return new WaitForSeconds(6f);
+        sceneBlocker.SetActive(false);
+        backdropFader.SetTrigger("toggle");
+        yield return new WaitForSeconds(3f);
         EndOfTitleSequence();
     }
 
     void EndOfTitleSequence()
     {
+        sceneBlocker.SetActive(false);
+        GameplayManager.Get.currentStage = GameplayManager.GameplayStage.OpenLobby;
         this.gameObject.SetActive(false);
     }
 }

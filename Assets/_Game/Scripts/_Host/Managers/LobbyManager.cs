@@ -21,8 +21,8 @@ public class LobbyManager : MonoBehaviour
 
     public TextMeshProUGUI welcomeMessageMesh;
     public Animator lobbyCodeAnim;
-    private const string welcomeMessage = "Welcome to the game [ABCD]";
-    private const string permaMessage = "Perma Message [ABCD]";
+    private const string welcomeMessage = "Welcome to <font=Abyss><color=blue>The Abyss</color></font>\nJoin the game at <color=yellow>https://persephoneschair.itch.io/abyss</color> using the room code <color=green>[ABCD]</color>";
+    private const string permaMessage = "Join the game at <color=yellow>https://persephoneschair.itch.io/abyss</color> using the room code <color=green>[ABCD]</color>";
 
     public Animator permaCodeAnim;
     public TextMeshProUGUI permaCodeMesh;

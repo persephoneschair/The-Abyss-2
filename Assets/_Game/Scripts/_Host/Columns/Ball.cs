@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     public float speed = 2;
     private Rigidbody rb;
     public bool elevate;
+    public Renderer rend;
 
     private void Start()
     {

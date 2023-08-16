@@ -126,3 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  elevate: 0
+  rend: {fileID: 9144259600130958355}

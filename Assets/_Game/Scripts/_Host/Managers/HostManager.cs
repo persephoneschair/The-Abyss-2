@@ -107,6 +107,7 @@ public class HostManager : MonoBehaviour
         switch (eventType)
         {
             case EventLibrary.ClientEventType.Answer:
+                p.AnswerReceived(QuestionManager.CheckSubmission(GameplayManager.Get.rounds[(int)GameplayManager.Get.currentRound - 1].currentQuestion.validAnswers, data), data);
                 break;
 
             default:

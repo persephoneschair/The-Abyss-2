@@ -23,7 +23,7 @@ public static class SaveManager
 
         GameplayDataSerializable gpd = new GameplayDataSerializable()
         {
-            nextQuestionNumber = GameplayManager.nextQuestionIndex,
+            nextQuestionNumber = QuestionManager.nextQuestionIndex,
             currentRound = GameplayManager.Get.currentRound,
             roundsPlayed = GameplayManager.Get.roundsPlayed
         };
@@ -40,6 +40,7 @@ public static class SaveManager
         pl.twitchName = playerObject.twitchName;
         pl.inHotseat = playerObject.inHotseat;
         pl.points = playerObject.points;
+        pl.lastFive = playerObject.lastFive;
         return pl;
     }
 
@@ -64,6 +65,7 @@ public static class SaveManager
             po.inHotseat = rc.inHotseat;
 
             po.points = rc.points;
+            po.lastFive = rc.lastFive;
         }
     }
 
@@ -80,7 +82,7 @@ public static class SaveManager
     {
         if(gameplayData != null)
         {
-            GameplayManager.nextQuestionIndex = gameplayData.nextQuestionNumber;
+            QuestionManager.nextQuestionIndex = gameplayData.nextQuestionNumber;
             GameplayManager.Get.currentRound = gameplayData.currentRound;
             GameplayManager.Get.roundsPlayed = gameplayData.roundsPlayed;
         }

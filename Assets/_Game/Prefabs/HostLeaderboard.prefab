@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 1159846995731873243}
   - {fileID: 1159846995992890584}
   cloneStraps: []
-  reorderDuration: 60
+  reorderDuration: 30
   originalStraps: []
 --- !u!1001 &721171121945971855
 PrefabInstance:

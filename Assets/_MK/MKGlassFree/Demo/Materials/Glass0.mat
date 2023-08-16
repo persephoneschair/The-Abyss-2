@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Glass0
   m_Shader: {fileID: 4800000, guid: 7f205347e1ebaf14c97b28211ae55dbe, type: 3}
   m_ShaderKeywords: _MK_BUMP_MAP _MK_LIGHTMODEL_BLINN_PHONG _MK_REFLECTIVE_DEFAULT
@@ -73,7 +74,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailTint: 0.25
-    - _Distortion: 0.439
+    - _Distortion: 0.2
     - _DstBlend: 0
     - _FresnelFactor: 1.4
     - _GlossMapScale: 1
@@ -84,8 +85,8 @@ Material:
     - _MKEditorShowLightBehavior: 0
     - _MKEditorShowMainBehavior: 1
     - _MKEditorShowReflectionBehavior: 1
-    - _MKEditorShowRenderBehavior: 0
-    - _MKEditorShowRimBehavior: 1
+    - _MKEditorShowRenderBehavior: 1
+    - _MKEditorShowRimBehavior: 0
     - _MKEditorShowSpecularBehavior: 0
     - _MKEditorShowTranslucentBehavior: 0
     - _MainTint: 0
@@ -98,7 +99,7 @@ Material:
     - _RimIntensity: 0.116
     - _RimSize: 3.21
     - _ShadowIntensity: 0.1
-    - _Shininess: 0.115
+    - _Shininess: 0.081
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0.5
@@ -120,3 +121,4 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _TranslucentColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_BuildTextureStacks: []

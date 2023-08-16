@@ -488,7 +488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a71ee4b1199a3224aa887d29e42cd418, type: 2}
   m_sharedMaterial: {fileID: 3349868373276544995, guid: a71ee4b1199a3224aa887d29e42cd418, type: 2}
@@ -1184,14 +1184,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b19d5534ee8f5b469369a482d02fd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorDelay: 3
   ballToInstance: {fileID: 9144259600130958367, guid: e034966dca4db2b439757bc391ab8e8f, type: 3}
   ballSpawnPoint: {fileID: 5257739343730841784}
+  nextDoorToOpen: 0
   trapdoors:
   - {fileID: 8157639704326976323}
   - {fileID: 2031142606458964186}
   - {fileID: 8526888204821646209}
   - {fileID: 1948939624607310233}
+  occupied: 0
   backRend: {fileID: 5507922299109723809}
+  otherRends:
+  - {fileID: 5812435922958194957}
+  - {fileID: 6557901779113950546}
+  - {fileID: 2585890201637155723}
+  - {fileID: 4415280007924820043}
+  columnMats:
+  - {fileID: 2100000, guid: 58a08cfb55af5e84fab3bacc60339a15, type: 2}
+  - {fileID: 2100000, guid: 5349e0adb9e50a54bbd22e9b9c00570a, type: 2}
+  scoreMesh: {fileID: 7609472352232858702}
 --- !u!1 &8402369500215817701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,8 +1421,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8581425819338710076}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: -0.377, z: 0}
-  m_LocalScale: {x: 0.71, y: 5.246455, z: 0.1}
+  m_LocalPosition: {x: 0, y: -0.377, z: -0.048}
+  m_LocalScale: {x: 0.71, y: 5.246455, z: 0.00405}
   m_Children: []
   m_Father: {fileID: 7010188866993946470}
   m_RootOrder: 0
@@ -1442,7 +1454,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5349e0adb9e50a54bbd22e9b9c00570a, type: 2}
+  - {fileID: 2100000, guid: 58a08cfb55af5e84fab3bacc60339a15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

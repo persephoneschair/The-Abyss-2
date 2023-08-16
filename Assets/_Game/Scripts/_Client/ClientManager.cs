@@ -69,6 +69,29 @@ public class ClientManager : MonoBehaviour
                 ClientMainGame.Get.UpdateLeaderboard(data);
                 break;
 
+            case EventLibrary.HostEventType.PrepForQuestion:
+                ClientMainGame.Get.ResetForNewQuestion();
+                break;
+
+            case EventLibrary.HostEventType.QuestionPacket:
+                dataArr = data.Split('|');
+                ClientMainGame.Get.DisplayQuestion(dataArr);
+                break;
+
+            case EventLibrary.HostEventType.AnswerPacket:
+                dataArr = data.Split('|');
+                ClientMainGame.Get.DisplayAnswer(dataArr);
+                break;
+
+            case EventLibrary.HostEventType.DataFields:
+                dataArr = data.Split('|');
+                ClientMainGame.Get.UpdateDataFields(dataArr);
+                break;
+
+            case EventLibrary.HostEventType.Clear:
+                ClientMainGame.Get.ClearScreen();
+                break;
+
             default:
                 break;
         }
