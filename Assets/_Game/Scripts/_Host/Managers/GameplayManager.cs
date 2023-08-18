@@ -94,8 +94,15 @@ public class GameplayManager : MonoBehaviour
                 break;
 
             case GameplayStage.RollCredits:
+                CreditsManager.Get.gameObject.SetActive(true);
                 CreditsManager.Get.RollCredits();
-                //Pennys
+                PennyManager.Get.UpdatePennysAndMedals();
+
+                foreach (PlayerObject po in PlayerManager.Get.players)
+                    HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.GameOver, (po.points * 10).ToString());
+
+                rounds[1].questionMesh.text = "";
+                rounds[1].categoryMesh.text = "";
                 currentStage++;
                 break;
 

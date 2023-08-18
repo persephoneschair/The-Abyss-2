@@ -175,6 +175,14 @@ public class ClientMainGame : MonoBehaviour
     public void EndOfGameAlert(string pennyValue)
     {
         fixedMessageObj.SetActive(true);
-        fixedMessageMesh.text = "THE GAME HAS NOW CONCLUDED AND THIS CONTROLLER CAN BE CLOSED.";
+        livesOrInactiveMesh.text = "GAME OVER";
+        fixedMessageMesh.text = $"THE GAME HAS NOW CONCLUDED AND THIS CONTROLLER CAN BE CLOSED.\n\nYOU HAVE EARNED {pennyValue} PENNYS THIS GAME.";
+    }
+
+    public void WrongApp()
+    {
+        fixedMessageObj.SetActive(true);
+        fixedMessageMesh.text = "YOU ARE ATTEMPTING TO PLAY THE GAME USING THE WRONG CONTROLLER APP.\n\n" +
+            "PLEASE CHECK THE GAME PAGE FOR THE CORRECT LINK TO THE CURRENT GAME.";
     }
 }

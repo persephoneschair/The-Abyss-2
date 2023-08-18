@@ -27,7 +27,7 @@ public class ClientManager : MonoBehaviour
 
     public void AttemptToConnectToRoom(string name, string roomCode)
     {
-        client.Connect(name, roomCode);
+        client.Connect(name + "¬ABYSS", roomCode);
     }
 
     public void OnConnected(string roomCode)
@@ -48,7 +48,7 @@ public class ClientManager : MonoBehaviour
     public void OnPayloadReceived(DataMessage dm)
     {
         string data = (string)dm.Data;
-        EventLibrary.HostEventType ev = EventLibrary.GetHostEventType(dm.Key);        
+        EventLibrary.HostEventType ev = EventLibrary.GetHostEventType(dm.Key);
 
         switch (ev)
         {
@@ -90,6 +90,15 @@ public class ClientManager : MonoBehaviour
 
             case EventLibrary.HostEventType.Clear:
                 ClientMainGame.Get.ClearScreen();
+                break;
+
+            case EventLibrary.HostEventType.GameOver:
+                ClientMainGame.Get.EndOfGameAlert(data);
+                break;
+
+            case EventLibrary.HostEventType.WrongApp:
+            case EventLibrary.HostEventType.WRONGAPP:
+                ClientMainGame.Get.WrongApp();
                 break;
 
             default:

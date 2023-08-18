@@ -40,6 +40,10 @@ public class ClientLandingPageManager : MonoBehaviour
     public GameObject otpAlert;
     public TextMeshProUGUI otpMesh;
 
+    [Header("Download Button")]
+    public TextMeshProUGUI downloadButtonMesh;
+    private string downloadLink;
+
     private void Update()
     {
         joinButton.interactable = (nameInput.text == "" || roomCodeInput.text.Length != 4) ? false : true;
@@ -59,6 +63,7 @@ public class ClientLandingPageManager : MonoBehaviour
     private void Start()
     {
         versionMesh.text = versionMesh.text.Replace("[##]", Application.version);
+        ChangeLabel();
     }
 
     public void OnPressJoinRoomButton()
@@ -113,5 +118,23 @@ public class ClientLandingPageManager : MonoBehaviour
         otpAlert.SetActive(false);
         ClientMainGame.Get.Initialise(otpArr);
         this.gameObject.SetActive(false);
+    }
+
+    public void DownloadPCVersion()
+    {
+        Application.OpenURL(downloadLink);
+    }
+
+    public void ChangeLabel()
+    {
+#if UNITY_STANDALONE
+        downloadButtonMesh.text = "GO TO BROWSER VERSION";
+        downloadLink = "https://persephoneschair.itch.io/abyss";
+#endif
+
+#if UNITY_WEBGL || UNITY_EDITOR
+        downloadButtonMesh.text = "DOWNLOAD PC VERSION";
+        downloadLink = "https://persephoneschair.itch.io/abysspc";
+#endif
     }
 }

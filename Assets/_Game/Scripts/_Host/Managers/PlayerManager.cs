@@ -113,7 +113,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerObject SelectARandomPlayer()
     {
         List<PlayerObject> playerDraw = new List<PlayerObject>();
-        foreach (PlayerObject p in players.Where(x => !x.inHotseat))
+        foreach (PlayerObject p in players.Where(x => !x.inHotseat && !x.justEliminated && x.verified))
         {
             playerDraw.Add(p);
             for (int i = 0; i < p.lastFive.Count(x => x); i++)
@@ -124,5 +124,19 @@ public class PlayerManager : MonoBehaviour
 
         else
             return null;
+    }
+
+    public void WaitForCountdown(PlayerObject p)
+    {
+        StartCoroutine(CountdownDelayRoutine(p));
+    }
+
+    IEnumerator CountdownDelayRoutine(PlayerObject p)
+    {
+        yield return new WaitUntil(() => !Round.entryDisabled);
+        p.verified = true;
+        LeaderboardManager.Get.PlayerHasJoined(p);
+        HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}");
+        HostManager.Get.UpdateClientLeaderboards();
     }
 }

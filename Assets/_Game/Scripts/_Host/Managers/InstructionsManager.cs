@@ -48,6 +48,7 @@ public class InstructionsManager : MonoBehaviour
     [Button]
     public void OnShowInstructions()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.OpenAndLockLobby);
         instructionsAnim.SetTrigger("toggle");
         instructionsMesh.text = instructions[(int)GameplayManager.Get.currentRound - 1].Replace("[###]", Extensions.NumberToWords(QuestionManager.GetRoundQCount()));
     }
@@ -55,6 +56,7 @@ public class InstructionsManager : MonoBehaviour
     [Button]
     public void OnHideInstructions()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.GoToFinal);
         instructionsAnim.SetTrigger("toggle");
         Invoke("Discs", 1f);
     }

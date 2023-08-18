@@ -16,8 +16,10 @@ public class PlayerObject
 
     public string twitchName;
     public Texture profileImage;
+    public bool verified;
 
     public bool inHotseat;
+    public bool justEliminated;
     public int hotseatLives = 0;
 
     public int points;
@@ -25,11 +27,11 @@ public class PlayerObject
     public string submission;
     public bool wasCorrect;
 
-    public PlayerObject(Player pl)
+    public PlayerObject(Player pl, string name)
     {
         playerClientRef = pl;
         otp = OTPGenerator.GenerateOTP();
-        playerName = pl.Name;
+        playerName = name;
         points = 0;
         lastFive = new bool[5];
     }
@@ -69,9 +71,8 @@ public class PlayerObject
         lastFive = new bool[5];
         inHotseat = false;
         hotseatLives = 0;
-        LeaderboardManager.Get.PlayerHasJoined(this);
-        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}");
-        HostManager.Get.UpdateClientLeaderboards();
+        //Ensure player doesn't join in between countdown and question, thus screwing with client timer animator
+        PlayerManager.Get.WaitForCountdown(this);
     }
 
     public void UpdateSideStraps()
@@ -89,6 +90,12 @@ public class PlayerObject
         cloneStrap.SetLockedInColor();
         var col = ColumnManager.Get.columns.FirstOrDefault(x => x.containedPlayer == this);
         if (col != null)
+        {
+            AudioManager.Get.Play(AudioManager.OneShotClip.ChuteLockIn);
             col.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.StandardColor);
+        }
+        else
+            AudioManager.Get.Play(AudioManager.OneShotClip.LobbyLockIn);
+            
     }
 }

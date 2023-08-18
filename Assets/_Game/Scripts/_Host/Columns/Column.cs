@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Column : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Column : MonoBehaviour
 
     public GameObject ballToInstance;
     public Transform ballSpawnPoint;
+    public TextMeshPro nameMesh;
+    public Color fontColor;
+    public GameObject[] consecutiveIndicators;
 
     public enum Trapdoor { ScoreArray, Top, Middle, Bottom };
     public Trapdoor nextDoorToOpen = Trapdoor.ScoreArray;
@@ -27,6 +31,12 @@ public class Column : MonoBehaviour
     public Material[] columnMats;
 
     public TextMeshPro scoreMesh;
+    public Animator nameAnim;
+
+    private void Start()
+    {
+        nameAnim.speed = UnityEngine.Random.Range(0.2f, 1f);
+    }
 
     public void SetColumnColor(MaterialChoice back, MaterialChoice rest)
     {
@@ -42,7 +52,7 @@ public class Column : MonoBehaviour
                 scoreMesh.text = containedPlayer.points.ToString();
             }
             else
-                backRend.material = columnMats[(int)MaterialChoice.StandardColor];
+                backRend.material = columnMats[(int)MaterialChoice.UnlitBlack];
         }
     }
 
@@ -53,6 +63,8 @@ public class Column : MonoBehaviour
 
         if(containedPlayer != null)
         {
+            nameMesh.color = fontColor;
+            nameMesh.text = containedPlayer.playerName;
             DebugLog.Print($"{containedPlayer.playerName} has joined The Abyss Arena.", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Blue);
             containedPlayer.inHotseat = true;
             containedPlayer.lastFive = new bool[5];
@@ -65,14 +77,37 @@ public class Column : MonoBehaviour
             scoreMesh.text = "--";
 
         SetColumnColor(MaterialChoice.ProfileTexture, MaterialChoice.StandardColor);
+        AudioManager.Get.Play(AudioManager.OneShotClip.ChuteJoin);
         OpenNextDoor();
         instancedBall.rend.material = columnMats[(int)MaterialChoice.GlowingColor];
         HostManager.Get.UpdateClientLeaderboards();
+        StartCoroutine(ActivationFlicker(false));
+    }
+
+    IEnumerator ActivationFlicker(bool kill)
+    {
+        yield return new WaitForSeconds(0.03f);
+        for(int i = 0; i < 5; i++)
+        {
+            SetColumnColor(MaterialChoice.UnlitBlack, MaterialChoice.UnlitBlack);
+            nameMesh.enabled = false;
+            scoreMesh.enabled = false;
+            yield return new WaitForSeconds(0.03f);
+
+            if (kill && i == 4)
+                break;
+
+            SetColumnColor(kill ? MaterialChoice.IncorrectColor : MaterialChoice.ProfileTexture, kill ? MaterialChoice.IncorrectColor : MaterialChoice.StandardColor);
+            nameMesh.enabled = true;
+            scoreMesh.enabled = true;
+            yield return new WaitForSeconds(0.03f);
+        }
     }
 
     [Button]
     public void OpenNextDoor()
     {
+        ClearAllConsecutiveStraps();
         OpenADoor(nextDoorToOpen);
         if (nextDoorToOpen != Trapdoor.Bottom)
             nextDoorToOpen++;
@@ -83,7 +118,6 @@ public class Column : MonoBehaviour
         }
     }
 
-    [Button]
     public void ElevateBall(bool debug)
     {
         if (instancedBall == null || instancedBall.elevate)
@@ -92,7 +126,7 @@ public class Column : MonoBehaviour
         containedPlayer.lastFive = new bool[5];
         if (nextDoorToOpen > Trapdoor.Top)
         {
-            //SFX
+            AudioManager.Get.PlayUnique(AudioManager.OneShotClip.ChuteExtraLife);
             if(debug)
                 DebugLog.Print($"{containedPlayer.playerName} got five right in a row and earned an extra life.", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Yellow);
             containedPlayer.hotseatLives++;
@@ -101,6 +135,16 @@ public class Column : MonoBehaviour
             nextDoorToOpen--;
             instancedBall.Elevate();
         }
+        SetConsecutiveLights(0);
+        HostManager.Get.SendPayloadToClient(containedPlayer, EventLibrary.HostEventType.DataFields, $"{containedPlayer.lastFive.Count(x => x)}/5|{containedPlayer.points}|{containedPlayer.hotseatLives}");
+    }
+
+    public void SetConsecutiveLights(int totalStraps)
+    {
+        foreach (GameObject go in consecutiveIndicators)
+            go.SetActive(false);
+        for(int i = 0; i < totalStraps; i++)
+            consecutiveIndicators[i].SetActive(true);
     }
 
     #region Private Methods
@@ -127,13 +171,23 @@ public class Column : MonoBehaviour
         scoreMesh.text = "";
         if(containedPlayer != null)
         {
+            nameMesh.text = "";
+            AudioManager.Get.Play(AudioManager.OneShotClip.ChuteDrop);
             DebugLog.Print($"{containedPlayer.playerName} has dropped into The Abyss and is out of the game!", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Orange);
             containedPlayer.inHotseat = false;
             containedPlayer.lastFive = new bool[5];
             containedPlayer.UpdateSideStraps();
+            containedPlayer.justEliminated = true;
             containedPlayer = null;
         }
         occupied = false;
+        StartCoroutine(ActivationFlicker(true));
+    }
+
+    private void ClearAllConsecutiveStraps()
+    {
+        foreach (GameObject go in consecutiveIndicators)
+            go.SetActive(false);
     }
 
     #endregion

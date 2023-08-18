@@ -17,6 +17,8 @@ public class FinalGame : Round
         //Check for all columns empty
         if (ColumnManager.Get.columns.Count(x => x.occupied) <= 1)
         {
+            AudioManager.Get.StopLoop();
+            AudioManager.Get.Play(AudioManager.LoopClip.EndOfGameTheme, false);
             GameplayManager.Get.currentRound = GameplayManager.RoundType.None;
             InstructionsManager.Get.Discs();
             categoryMesh.text = "<font=AbyssSurface><color=#AB0000>GAME OVER</color></font>";
@@ -43,6 +45,8 @@ public class FinalGame : Round
             GameplayManager.Get.currentRound = GameplayManager.RoundType.None;
             InstructionsManager.Get.Discs();
             categoryMesh.text = "<font=AbyssSurface><color=#AB0000>GAME OVER</color></font>";
+            AudioManager.Get.StopLoop();
+            AudioManager.Get.Play(AudioManager.LoopClip.EndOfGameTheme, false);
 
             //Ugly, ugly logic to do tiebreaker stuff
             List<PlayerObject> orderedPlayers = ColumnManager.Get.columns.Where(x => x.containedPlayer != null).Select(x => x.containedPlayer).ToList();

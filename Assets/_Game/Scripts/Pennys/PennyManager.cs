@@ -97,18 +97,10 @@ public class PennyManager : MonoBehaviour
 
     private void AwardMedals()
     {
-        List<PlayerObject> topTwo = PlayerManager.Get.players.Where(x => x.inHotseat).OrderByDescending(x => x.points).ToList();
         LoadMedalJSON();
 
-        /*if(topTwo.Count == 2)
-        {
-            medalList.goldMedallists.Add(topTwo[0].twitchName.ToLowerInvariant());
-            medalList.silverMedallists.Add(topTwo[1].twitchName.ToLowerInvariant());
-        }
-
-        List<PlayerObject> lobbyOrdered = PlayerManager.Get.players.Where(x => x.eliminated).OrderByDescending(x => x.totalCorrect).ToList();
-        foreach(PlayerObject player in lobbyOrdered.Where(x => x.totalCorrect == lobbyOrdered[0].totalCorrect))
-            medalList.lobbyMedallists.Add(player.twitchName.ToLowerInvariant());*/
+        foreach(PlayerObject po in winningPlayers)
+            medalList.goldMedallists.Add(po.twitchName.ToLowerInvariant());
     }
 
     private void CreateNewPlayer(PlayerObject p)
@@ -144,7 +136,6 @@ public class PennyManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(gameName))
         {
-            medalPath = path + $@"\{gameName}Test.txt";
             newDataContent = JsonConvert.SerializeObject(medalList);
             File.WriteAllText(medalPath, newDataContent);
         }

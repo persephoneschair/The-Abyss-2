@@ -40,6 +40,7 @@ public class TitlesManager : MonoBehaviour
 
     IEnumerator TitleSequence()
     {
+        AudioManager.Get.Play(AudioManager.LoopClip.TitlesTheme, false);
         for(int i = 0; i < titlesOptions.Length - 1; i++)
         {
             titlesMesh.text = titlesOptions[i];
@@ -51,14 +52,19 @@ public class TitlesManager : MonoBehaviour
         yield return new WaitForSeconds(6f);
         sceneBlocker.SetActive(false);
         backdropFader.SetTrigger("toggle");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        AudioManager.Get.Play(AudioManager.LoopClip.GameplayLoop);
+        yield return new WaitForSeconds(2f);
         EndOfTitleSequence();
     }
 
     void EndOfTitleSequence()
     {
+        if(!AudioManager.Get.loopingSource.isPlaying)
+            AudioManager.Get.Play(AudioManager.LoopClip.GameplayLoop);
         sceneBlocker.SetActive(false);
         GameplayManager.Get.currentStage = GameplayManager.GameplayStage.OpenLobby;
+        GameplayManager.Get.ProgressGameplay();
         this.gameObject.SetActive(false);
     }
 }

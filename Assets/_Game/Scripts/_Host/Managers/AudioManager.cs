@@ -23,10 +23,10 @@ public class AudioManager : MonoBehaviour
 
     private bool playedUnique;
 
-    public enum OneShotClip { Impact, PodiumAnim, ClockTick, PlayerAnswer, WrongInFinal, ClockArm, Rotation, QStartAndEnd, PointTick };
+    public enum OneShotClip { ChuteDrop, ChuteExtraLife, ChuteJoin, ChuteLockIn, ChuteLoseLife, ClockTick, GoToFinal, LobbyLockIn, OpenAndLockLobby, LobbyJoin1, LobbyJoin2, LobbyJoin3 };
     public AudioClip[] stings;
 
-    public enum LoopClip { Titles, GameplayLoop, WinTheme, Credits };
+    public enum LoopClip { CreditsTheme, EndOfGameTheme, GameplayLoop, TitlesTheme };
     public AudioClip[] loops;
 
     #region Public Methods

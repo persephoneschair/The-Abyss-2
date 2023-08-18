@@ -13,11 +13,16 @@ public class Round : MonoBehaviour
 
     public TextMeshPro qCountMesh;
 
+    public static bool entryDisabled;
+
     public virtual void LoadQuestion()
     {
         //Back up data
+        entryDisabled = true;
         QuestionCounter.Get.UpdateQuestionNumber();
         currentQuestion = QuestionManager.GetQuestion();
+        foreach (PlayerObject p in PlayerManager.Get.players)
+            p.justEliminated = false;
         QuestionManager.nextQuestionIndex++;
         RunQuestion();
     }
@@ -32,27 +37,39 @@ public class Round : MonoBehaviour
 
         //Warning beeps and countdown on devices
         GlobalTimeManager.Get.ResetClock(true);
+        StartCoroutine(ClockTickCountdown());
         Invoke("QuestionRunning", 3f);
+    }
+
+    public virtual IEnumerator ClockTickCountdown()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            AudioManager.Get.Play(AudioManager.OneShotClip.ClockTick);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public virtual void QuestionRunning()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.GoToFinal);
         foreach (PlayerObject po in PlayerManager.Get.players)
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.QuestionPacket, $"{currentQuestion.category}|{currentQuestion.question} <color=yellow>{QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray())}");
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.QuestionPacket, $"{currentQuestion.category} ({QuestionManager.nextQuestionIndex}/{QuestionManager.GetRoundQCount()})|{currentQuestion.question} <color=yellow>{QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray())}");
 
         categoryMesh.text = $"<u>{ currentQuestion.category }</u>";
         questionMesh.text = currentQuestion.question + " <color=yellow>" + QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray());
         Invoke("OnQuestionEnded", 16f);
+        entryDisabled = false;
     }
 
     public virtual void OnQuestionEnded()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.ChuteLoseLife);
         GlobalTimeManager.Get.StopClock();
         questionMesh.text = currentQuestion.validAnswers[0];
 
-        if(GameplayManager.Get.currentRound != GameplayManager.RoundType.MainGame || (GameplayManager.Get.currentRound != GameplayManager.RoundType.MainGame && QuestionManager.nextQuestionIndex > 5))
-            foreach (Column c in ColumnManager.Get.columns)
-                c.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.UnlitBlack);
+        foreach (Column c in ColumnManager.Get.columns)
+            c.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.UnlitBlack);
 
         foreach (PlayerObject pl in PlayerManager.Get.players.Where(x => x.wasCorrect))
         {
@@ -63,7 +80,11 @@ public class Round : MonoBehaviour
 
             var x = ColumnManager.Get.columns.FirstOrDefault(x => x.containedPlayer == pl);
             if (x != null)
+            {
                 x.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.CorrectColor);
+                if(GameplayManager.Get.currentRound == GameplayManager.RoundType.MainGame)
+                    x.SetConsecutiveLights(pl.lastFive.Count(x => x));
+            }                
         }
         foreach(PlayerObject pl in PlayerManager.Get.players.Where(x => !x.wasCorrect))
         {

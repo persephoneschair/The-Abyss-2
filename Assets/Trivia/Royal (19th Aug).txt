@@ -1,0 +1,263 @@
+{
+  "author": "royal_flush",
+  "cat1Qs": [
+    {
+      "category": "Colours",
+      "question": "By any other name, it would still smell as sweet...",
+      "singleStringAnswers": "Rose"
+    },
+    {
+      "category": "Colours",
+      "question": "Citrus fruit that is popular on pancakes",
+      "singleStringAnswers": "Lemon"
+    },
+    {
+      "category": "Colours",
+      "question": "Oceanic branch of the British Armed Forces",
+      "singleStringAnswers": "Navy"
+    },
+    {
+      "category": "Colours",
+      "question": "What you get on your skin if you lie in the sun with sunscreen",
+      "singleStringAnswers": "Tan"
+    },
+    {
+      "category": "Colours",
+      "question": "French city that lends its name to a mustard",
+      "singleStringAnswers": "Dijon"
+    },
+    {
+      "category": "Colours",
+      "question": "Colloquial term for a redhead",
+      "singleStringAnswers": "Ginger"
+    },
+    {
+      "category": "Colours",
+      "question": "Brand of latex rubber gloves",
+      "singleStringAnswers": "Marigold"
+    },
+    {
+      "category": "Colours",
+      "question": "A small edible whelk, or sea snail",
+      "singleStringAnswers": "Periwinkle"
+    },
+    {
+      "category": "Colours",
+      "question": "Budget UK car insurer and one of the highest naval ranks",
+      "singleStringAnswers": "Admiral"
+    },
+    {
+      "category": "Colours",
+      "question": "___ Graham, US actress famous for Austin Powers & Scrubs",
+      "singleStringAnswers": "Heather"
+    }
+  ],
+  "cat2Qs": [
+    {
+      "category": "Artists",
+      "question": "Hey Jude (1968)",
+      "singleStringAnswers": "The Beatles,Beatles"
+    },
+    {
+      "category": "Artists",
+      "question": "Don't Look Back in Anger (1996)",
+      "singleStringAnswers": "Oasis"
+    },
+    {
+      "category": "Artists",
+      "question": "Just Like a Pill (2002)",
+      "singleStringAnswers": "P!nk,Pink"
+    },
+    {
+      "category": "Artists",
+      "question": "Hold My Hand (2015)",
+      "singleStringAnswers": "Jess Glynne,Glynne"
+    },
+    {
+      "category": "Artists",
+      "question": "Eye of the Tiger (1982)",
+      "singleStringAnswers": "Survivor"
+    },
+    {
+      "category": "Artists",
+      "question": "Sailing (1975)",
+      "singleStringAnswers": "Rod Stewart,Stewart"
+    },
+    {
+      "category": "Artists",
+      "question": "Dynamite (2010)",
+      "singleStringAnswers": "Taio Cruz"
+    },
+    {
+      "category": "Artists",
+      "question": "The Rose (2006)",
+      "singleStringAnswers": "Westlife"
+    },
+    {
+      "category": "Artists",
+      "question": "Pure Shores (2000)",
+      "singleStringAnswers": "All Saints"
+    },
+    {
+      "category": "Artists",
+      "question": "You Win Again (1987)",
+      "singleStringAnswers": "Bee Gees"
+    }
+  ],
+  "cat3Qs": [
+    {
+      "category": "Spoilers",
+      "question": "Dr Malcolm Crowe was dead the whole time (1999)",
+      "singleStringAnswers": "The Sixth Sense,The 6th Sense,Sixth Sense,6th Sense"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Darth Vader is Luke's father (1980)",
+      "singleStringAnswers": "The Empire Strikes Back,Empire Strikes Back,Star Wars V,Star Wars 5"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Verbal Kint is Keyser Söze (1995)",
+      "singleStringAnswers": "The Usual Suspects"
+    },
+    {
+      "category": "Spoilers",
+      "question": "The one who chained them up was in the bathroom with them (2004)",
+      "singleStringAnswers": "Saw"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Tyler Durden and the narrator are the same person (1999)",
+      "singleStringAnswers": "Fight Club"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Rosebud was his sled (1941)",
+      "singleStringAnswers": "Citizen Kane"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Alfred Borden has a twin (2006)",
+      "singleStringAnswers": "The Prestige"
+    },
+    {
+      "category": "Spoilers",
+      "question": "A team of scientists are orchestrating the horrors to save the world from total destruction (2011)",
+      "singleStringAnswers": "The Cabin in the Woods,Cabin in the Woods"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Teddy Daniels is actually Andrew Laeddis, one of the inmates (2010)",
+      "singleStringAnswers": "Shutter Island"
+    },
+    {
+      "category": "Spoilers",
+      "question": "Snape Kills Dumbledore (2009)",
+      "singleStringAnswers": "Harry Potter and the Half-Blood Prince,Harry Potter and Half Blood Prince,Harry Potter 6"
+    }
+  ],
+  "cat4Qs": [
+    {
+      "category": "Elements",
+      "question": "Carbon - Argon",
+      "singleStringAnswers": "Car"
+    },
+    {
+      "category": "Elements",
+      "question": "Fluorine - Oganesson",
+      "singleStringAnswers": "Fog"
+    },
+    {
+      "category": "Elements",
+      "question": "Beryllium - Carbon - Gold - Selenium",
+      "singleStringAnswers": "Because"
+    },
+    {
+      "category": "Elements",
+      "question": "Lutetium - Carbon - Potassium - Yttrium",
+      "singleStringAnswers": "Lucky"
+    },
+    {
+      "category": "Elements",
+      "question": "Vanadium - Astatine - Iodine - Calcium - Nitrogen",
+      "singleStringAnswers": "Vatican"
+    },
+    {
+      "category": "Elements",
+      "question": "Bromine - Oxygen - Tungsten",
+      "singleStringAnswers": "Brow"
+    },
+    {
+      "category": "Elements",
+      "question": "Carbon - Holmium - Cobalt - Lanthanum - Tellurium",
+      "singleStringAnswers": "Chocolate"
+    },
+    {
+      "category": "Elements",
+      "question": "Phosphorus - Hydrogen - Yttrium - Silicon - Caesium",
+      "singleStringAnswers": "Physics"
+    },
+    {
+      "category": "Elements",
+      "question": "Silver - Nitrogen - Osmium - Titanium - Carbon",
+      "singleStringAnswers": "Agnostic"
+    },
+    {
+      "category": "Elements",
+      "question": "Osmium - Tellurium - Nitrogen - Tantalum - Titanium - Oxygen - Uranium - Sulfur",
+      "singleStringAnswers": "Ostentatious"
+    }
+  ],
+  "cat5Qs": [
+    {
+      "category": "Names",
+      "question": "A damn shame",
+      "singleStringAnswers": "Adam"
+    },
+    {
+      "category": "Names",
+      "question": "Our benevolent God",
+      "singleStringAnswers": "Len,Ben"
+    },
+    {
+      "category": "Names",
+      "question": "A small aura",
+      "singleStringAnswers": "Laura"
+    },
+    {
+      "category": "Names",
+      "question": "Better late than never",
+      "singleStringAnswers": "Ethan,Anne"
+    },
+    {
+      "category": "Names",
+      "question": "I eat my curry and rice",
+      "singleStringAnswers": "Ryan"
+    },
+    {
+      "category": "Names",
+      "question": "I confused nutmeg and cinnamon",
+      "singleStringAnswers": "Megan"
+    },
+    {
+      "category": "Names",
+      "question": "Someone broke into my car, lost their keys and took off with my money",
+      "singleStringAnswers": "Carlos"
+    },
+    {
+      "category": "Names",
+      "question": "Come and listen to the sisters tell a story",
+      "singleStringAnswers": "Stella,Ella"
+    },
+    {
+      "category": "Names",
+      "question": "The only thing I want to hear is a believable story",
+      "singleStringAnswers": "Isabel"
+    },
+    {
+      "category": "Names",
+      "question": "People who speak Zulu cast a magical spell on the world",
+      "singleStringAnswers": "Lucas"
+    }
+  ]
+}

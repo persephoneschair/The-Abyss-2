@@ -30,6 +30,7 @@ public class LobbyManager : MonoBehaviour
     [Button]
     public void OnOpenLobby()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.OpenAndLockLobby);
         lobbyCodeAnim.SetTrigger("toggle");
         welcomeMessageMesh.text = welcomeMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant());
     }
@@ -37,6 +38,7 @@ public class LobbyManager : MonoBehaviour
     [Button]
     public void OnLockLobby()
     {
+        AudioManager.Get.Play(AudioManager.OneShotClip.OpenAndLockLobby);
         lobbyCodeAnim.SetTrigger("toggle");
         permaCodeMesh.text = permaMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant());
         Invoke("TogglePermaCode", 1f);

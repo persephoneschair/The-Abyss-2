@@ -18,6 +18,18 @@ public static class QuestionManager
     public static void DecompilePack(TextAsset tx)
     {
         currentPack = JsonConvert.DeserializeObject<Pack>(tx.text);
+
+        foreach (Question q in currentPack.cat1Qs)
+            q.validAnswers = q.singleStringAnswers.Split(',').ToList();
+        foreach (Question q in currentPack.cat2Qs)
+            q.validAnswers = q.singleStringAnswers.Split(',').ToList();
+        foreach (Question q in currentPack.cat3Qs)
+            q.validAnswers = q.singleStringAnswers.Split(',').ToList();
+        foreach (Question q in currentPack.cat4Qs)
+            q.validAnswers = q.singleStringAnswers.Split(',').ToList();
+        foreach (Question q in currentPack.cat5Qs)
+            q.validAnswers = q.singleStringAnswers.Split(',').ToList();
+
         CompilePlayOrders();
     }
 

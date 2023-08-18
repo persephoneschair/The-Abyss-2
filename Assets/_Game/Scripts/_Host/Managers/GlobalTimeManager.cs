@@ -43,6 +43,7 @@ public class GlobalTimeManager : MonoBehaviour
 
     public void StartClock()
     {
+        lastTimestamp = 15;
         questionClockRunning = true;
         currentQAnim.SetTrigger("toggle");
     }
@@ -59,9 +60,19 @@ public class GlobalTimeManager : MonoBehaviour
             Invoke("StartClock", 3f);
     }
 
+    private int lastTimestamp;
+
     void QuestionTimer()
     {
         elapsedTime += (1f * Time.deltaTime);
+        if(int.TryParse(currentQTimeMesh.text, out int clockValue))
+        {
+            if((clockValue % 5 == 0 || clockValue < 4) && lastTimestamp != clockValue)
+            {
+                lastTimestamp = clockValue;
+                AudioManager.Get.Play(AudioManager.OneShotClip.ClockTick);
+            }
+        }
     }
 
     public float GetRawTimestamp()

@@ -11,7 +11,7 @@ public class MainGame : Round
 
         if (ColumnManager.Get.columns.Where(x => x.containedPlayer != null && x.containedPlayer.lastFive.Count(x => x) == 5).Count() != 0)
             StartCoroutine(ExtraLives());
-        else if (ColumnManager.Get.columns.Any(x => !x.occupied) && QuestionManager.nextQuestionIndex > 4 && PlayerManager.Get.players.Count(x => !x.inHotseat) != 0)
+        else if (ColumnManager.Get.columns.Any(x => !x.occupied) && QuestionManager.nextQuestionIndex > 4 && PlayerManager.Get.players.Count(x => !x.inHotseat && !x.justEliminated) != 0)
             StartCoroutine(GettingPlayers());
         else
             ResetForNextQuestion();
@@ -19,11 +19,19 @@ public class MainGame : Round
 
     IEnumerator ExtraLives()
     {
-        foreach (Column c in ColumnManager.Get.columns.Where(x => x.containedPlayer != null && x.containedPlayer.lastFive.Count(x => x) == 5))
-            c.ElevateBall(true);
+        bool animationRequired = false;
 
+        foreach (Column c in ColumnManager.Get.columns.Where(x => x.containedPlayer != null && x.containedPlayer.lastFive.Count(x => x) == 5))
+        {
+            if (c.containedPlayer.hotseatLives != 3 || animationRequired)
+                animationRequired = true;
+            c.ElevateBall(true);
+        }
         HostManager.Get.UpdateClientLeaderboards();
-        yield return new WaitForSeconds(5f);
+
+        if(animationRequired)
+            yield return new WaitForSeconds(5f);
+
         if (ColumnManager.Get.columns.Any(x => !x.occupied) && QuestionManager.nextQuestionIndex > 4 && PlayerManager.Get.players.Count(x => !x.inHotseat) != 0)
             StartCoroutine(GettingPlayers());
         else

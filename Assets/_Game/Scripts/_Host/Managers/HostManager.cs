@@ -32,12 +32,19 @@ public class HostManager : MonoBehaviour
 
     public void OnPlayerJoins(Player joinedPlayer)
     {
+        string[] name = joinedPlayer.Name.Split('¬');
+        if (name[1] != "ABYSS")
+        {
+            SendPayloadToClient(joinedPlayer, EventLibrary.HostEventType.WrongApp, "");
+                return;
+        }
         if (PlayerManager.Get.players.Count >= Operator.Get.playerLimit && Operator.Get.playerLimit != 0)
         {
             //Do something slightly better than this
             return;
         }
-        PlayerObject pl = new PlayerObject(joinedPlayer);
+
+        PlayerObject pl = new PlayerObject(joinedPlayer, name[0].Trim());
         pl.playerClientID = joinedPlayer.UserID;
         PlayerManager.Get.players.Add(pl);
         
@@ -62,7 +69,7 @@ public class HostManager : MonoBehaviour
         else if (Operator.Get.fastValidation)
             StartCoroutine(FastValidation(pl));
 
-        DebugLog.Print($"{joinedPlayer.Name} HAS JOINED THE LOBBY", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
+        DebugLog.Print($"{name[0].Trim()} HAS JOINED THE LOBBY", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
         SendPayloadToClient(joinedPlayer, EventLibrary.HostEventType.Validate, $"{pl.otp}");
     }
 
@@ -88,6 +95,8 @@ public class HostManager : MonoBehaviour
 
     public void SendPayloadToClient(PlayerObject pl, EventLibrary.HostEventType e, string data)
     {
+        if (!pl.verified)
+            return;
         host.UpdatePlayerData(pl.playerClientRef, EventLibrary.GetHostEventTypeString(e), data);
     }
 

@@ -20,6 +20,12 @@ public class CreditsManager : MonoBehaviour
     #endregion
 
     public GameObject endCard;
+    public Animator backgroundAnim;
+    public GameObject sceneBlocker;
+
+    public Animator creditsAnim;
+    [TextArea(5,10)] public string[] creditsOptions;
+    public TextMeshProUGUI creditsMesh;
 
     private void Start()
     {
@@ -29,13 +35,28 @@ public class CreditsManager : MonoBehaviour
     [Button]
     public void RollCredits()
     {
-        this.gameObject.SetActive(true);
+        AudioManager.Get.Play(AudioManager.LoopClip.CreditsTheme, false);
         StartCoroutine(Credits());
     }
 
     IEnumerator Credits()
     {
-        yield return new WaitForSeconds(0f);
+        backgroundAnim.SetTrigger("toggle");
+        yield return new WaitForSeconds(3f);
+        sceneBlocker.SetActive(true);
+        for(int i = 0; i < creditsOptions.Length - 1; i++)
+        {
+            yield return new WaitForSeconds(1.25f);
+            creditsMesh.text = creditsOptions[i];
+            creditsAnim.SetTrigger("toggle");
+            yield return new WaitForSeconds(3f);
+            creditsAnim.SetTrigger("toggle");
+        }
+        yield return new WaitForSeconds(2.5f);
+        creditsMesh.text = creditsOptions[creditsOptions.Length - 1];
+        creditsAnim.SetTrigger("toggle");
+        yield return new WaitForSeconds(10f);
+        creditsMesh.text = "";
         endCard.SetActive(true);
     }
 }
