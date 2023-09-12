@@ -71,7 +71,7 @@ public class Column : MonoBehaviour
             containedPlayer.hotseatLives = 3;
             scoreMesh.text = containedPlayer.points.ToString();
             containedPlayer.UpdateSideStraps();
-            HostManager.Get.SendPayloadToClient(containedPlayer, EventLibrary.HostEventType.DataFields, $"{containedPlayer.lastFive.Count(x => x)}/5|{containedPlayer.points}|{containedPlayer.hotseatLives}");
+            //HostManager.Get.SendPayloadToClient(containedPlayer, EventLibrary.HostEventType.DataFields, $"{containedPlayer.lastFive.Count(x => x)}/5|{containedPlayer.points}|{containedPlayer.hotseatLives}");
         }
         else
             scoreMesh.text = "--";
@@ -80,7 +80,7 @@ public class Column : MonoBehaviour
         AudioManager.Get.Play(AudioManager.OneShotClip.ChuteJoin);
         OpenNextDoor();
         instancedBall.rend.material = columnMats[(int)MaterialChoice.GlowingColor];
-        HostManager.Get.UpdateClientLeaderboards();
+        //HostManager.Get.UpdateClientLeaderboards();
         StartCoroutine(ActivationFlicker(false));
     }
 
@@ -136,7 +136,7 @@ public class Column : MonoBehaviour
             instancedBall.Elevate();
         }
         SetConsecutiveLights(0);
-        HostManager.Get.SendPayloadToClient(containedPlayer, EventLibrary.HostEventType.DataFields, $"{containedPlayer.lastFive.Count(x => x)}/5|{containedPlayer.points}|{containedPlayer.hotseatLives}");
+        //HostManager.Get.SendPayloadToClient(containedPlayer, EventLibrary.HostEventType.DataFields, $"{containedPlayer.lastFive.Count(x => x)}/5|{containedPlayer.points}|{containedPlayer.hotseatLives}");
     }
 
     public void SetConsecutiveLights(int totalStraps)
@@ -172,7 +172,7 @@ public class Column : MonoBehaviour
         if(containedPlayer != null)
         {
             nameMesh.text = "";
-            AudioManager.Get.Play(AudioManager.OneShotClip.ChuteDrop);
+            AudioManager.Get.PlayUnique(AudioManager.OneShotClip.ChuteDrop);
             DebugLog.Print($"{containedPlayer.playerName} has dropped into The Abyss and is out of the game!", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Orange);
             containedPlayer.inHotseat = false;
             containedPlayer.lastFive = new bool[5];

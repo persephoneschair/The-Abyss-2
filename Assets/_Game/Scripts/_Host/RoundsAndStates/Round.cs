@@ -33,7 +33,7 @@ public class Round : MonoBehaviour
             questionLozengeAnim.SetTrigger("toggle");
 
         foreach (PlayerObject po in PlayerManager.Get.players)
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.PrepForQuestion, "");
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, "Get ready for the question...");
 
         //Warning beeps and countdown on devices
         GlobalTimeManager.Get.ResetClock(true);
@@ -54,7 +54,7 @@ public class Round : MonoBehaviour
     {
         AudioManager.Get.Play(AudioManager.OneShotClip.GoToFinal);
         foreach (PlayerObject po in PlayerManager.Get.players)
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.QuestionPacket, $"{currentQuestion.category} ({QuestionManager.nextQuestionIndex}/{QuestionManager.GetRoundQCount()})|{currentQuestion.question} <color=yellow>{QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray())}");
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.SimpleQuestion, $"<size=75%><u>{currentQuestion.category} ({QuestionManager.nextQuestionIndex}/{QuestionManager.GetRoundQCount()})</u></size>\n{currentQuestion.question} <color=yellow>{QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray())}|14");
 
         categoryMesh.text = $"<u>{ currentQuestion.category }</u>";
         questionMesh.text = currentQuestion.question + " <color=yellow>" + QuestionManager.GetClueLength(currentQuestion.validAnswers.ToArray());
@@ -88,8 +88,11 @@ public class Round : MonoBehaviour
         }
         foreach(PlayerObject pl in PlayerManager.Get.players.Where(x => !x.wasCorrect))
         {
-            pl.strap.SetCorrectOrIncorrectColor(false);
-            pl.cloneStrap.SetCorrectOrIncorrectColor(false);
+            if(pl.strap != null)
+            {
+                pl.strap.SetCorrectOrIncorrectColor(false);
+                pl.cloneStrap.SetCorrectOrIncorrectColor(false);
+            }
 
             if (!pl.inHotseat)
                 pl.lastFive[(QuestionManager.nextQuestionIndex - 1) % 5] = false;
@@ -108,15 +111,11 @@ public class Round : MonoBehaviour
 
         foreach (PlayerObject po in PlayerManager.Get.players)
         {
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.AnswerPacket, currentQuestion.validAnswers[0] + "|" + po.wasCorrect.ToString().ToUpperInvariant());
-            if(GameplayManager.Get.currentRound == GameplayManager.RoundType.MainGame)
-                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.DataFields, $"{po.lastFive.Count(x => x).ToString() + "/" + (QuestionManager.nextQuestionIndex > 4 ? "5" : QuestionManager.nextQuestionIndex.ToString())}|{po.points}|{po.hotseatLives.ToString()}");            
-            else
-                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.DataFields, $"<color=#9f9f9f15>--|{po.points}|{po.hotseatLives.ToString()}");
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.SingleAndMultiResult, currentQuestion.validAnswers[0] + "|" + (po.wasCorrect ? "Correct" : "Incorrect"));
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.UpdateScore, $"Points: {po.points}");
         }
 
         LeaderboardManager.Get.ReorderBoard();
-        HostManager.Get.UpdateClientLeaderboards();
         Invoke("UpdateColumnsPostQuestion", 5f);
     }
 

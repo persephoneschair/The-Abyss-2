@@ -31,22 +31,16 @@ public class HostManager : MonoBehaviour
     }
 
     public void OnPlayerJoins(Player joinedPlayer)
-    {
-        string[] name = joinedPlayer.Name.Split('¬');
-        if (name[1] != "ABYSS")
-        {
-            SendPayloadToClient(joinedPlayer, EventLibrary.HostEventType.WrongApp, "");
-                return;
-        }
+    {        
         if (PlayerManager.Get.players.Count >= Operator.Get.playerLimit && Operator.Get.playerLimit != 0)
         {
             //Do something slightly better than this
             return;
         }
 
-        PlayerObject pl = new PlayerObject(joinedPlayer, name[0].Trim());
+        PlayerObject pl = new PlayerObject(joinedPlayer);
         pl.playerClientID = joinedPlayer.UserID;
-        PlayerManager.Get.players.Add(pl);
+        PlayerManager.Get.pendingPlayers.Add(pl);
         
         if(Operator.Get.recoveryMode)
         {
@@ -69,7 +63,7 @@ public class HostManager : MonoBehaviour
         else if (Operator.Get.fastValidation)
             StartCoroutine(FastValidation(pl));
 
-        DebugLog.Print($"{name[0].Trim()} HAS JOINED THE LOBBY", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
+        DebugLog.Print($"{joinedPlayer.Name} HAS JOINED THE LOBBY", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
         SendPayloadToClient(joinedPlayer, EventLibrary.HostEventType.Validate, $"{pl.otp}");
     }
 
@@ -115,8 +109,17 @@ public class HostManager : MonoBehaviour
 
         switch (eventType)
         {
-            case EventLibrary.ClientEventType.Answer:
+            case EventLibrary.ClientEventType.SimpleQuestion:
                 p.AnswerReceived(QuestionManager.CheckSubmission(GameplayManager.Get.rounds[(int)GameplayManager.Get.currentRound - 1].currentQuestion.validAnswers, data), data);
+                break;
+
+            case EventLibrary.ClientEventType.StoredValidation:
+                string[] str = data.Split('|').ToArray();
+                TwitchManager.GetTwitchControl.testUsername = str[0];
+                TwitchManager.GetTwitchControl.testMessage = str[1];
+                TwitchManager.GetTwitchControl.SendTwitchWhisper();
+                TwitchManager.GetTwitchControl.testUsername = "";
+                TwitchManager.GetTwitchControl.testMessage = "";
                 break;
 
             default:
@@ -124,7 +127,7 @@ public class HostManager : MonoBehaviour
         }
     }
 
-    public void UpdateClientLeaderboards()
+    /*public void UpdateClientLeaderboards()
     {
         List<PlayerObject> lb = PlayerManager.Get.players.OrderByDescending(x => x.points).ThenBy(x => x.playerName).ToList();
 
@@ -141,7 +144,7 @@ public class HostManager : MonoBehaviour
 
         foreach (PlayerObject pl in lb)
             SendPayloadToClient(pl, EventLibrary.HostEventType.Leaderboard, payload);
-    }
+    }*/
 
     #endregion
 

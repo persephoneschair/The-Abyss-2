@@ -13,12 +13,12 @@
     },
     {
       "category": "Colours",
-      "question": "Oceanic branch of the British Armed Forces",
+      "question": "Water-based branch of the British Armed Forces",
       "singleStringAnswers": "Navy"
     },
     {
       "category": "Colours",
-      "question": "What you get on your skin if you lie in the sun with sunscreen",
+      "question": "What you get if you lie in the sun with sunscreen",
       "singleStringAnswers": "Tan"
     },
     {
@@ -86,7 +86,7 @@
     {
       "category": "Artists",
       "question": "Dynamite (2010)",
-      "singleStringAnswers": "Taio Cruz"
+      "singleStringAnswers": "Taio Cruz,Cruz"
     },
     {
       "category": "Artists",
@@ -118,7 +118,7 @@
     {
       "category": "Spoilers",
       "question": "Verbal Kint is Keyser Söze (1995)",
-      "singleStringAnswers": "The Usual Suspects"
+      "singleStringAnswers": "The Usual Suspects,Usual Suspects"
     },
     {
       "category": "Spoilers",
@@ -152,8 +152,8 @@
     },
     {
       "category": "Spoilers",
-      "question": "Snape Kills Dumbledore (2009)",
-      "singleStringAnswers": "Harry Potter and the Half-Blood Prince,Harry Potter and Half Blood Prince,Harry Potter 6"
+      "question": "Snape kills Dumbledore (2009)",
+      "singleStringAnswers": "Harry Potter and the Half-Blood Prince,Harry Potter and Half Blood Prince,Harry Potter 6,Half Blood Prince"
     }
   ],
   "cat4Qs": [
@@ -241,7 +241,7 @@
     },
     {
       "category": "Names",
-      "question": "Someone broke into my car, lost their keys and took off with my money",
+      "question": "I broke into my car; lost my keys and had no choice",
       "singleStringAnswers": "Carlos"
     },
     {
@@ -251,7 +251,7 @@
     },
     {
       "category": "Names",
-      "question": "The only thing I want to hear is a believable story",
+      "question": "The only thing I want to hear is a believable tale",
       "singleStringAnswers": "Isabel"
     },
     {

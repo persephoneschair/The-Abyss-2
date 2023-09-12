@@ -97,10 +97,6 @@ public class GameplayManager : MonoBehaviour
                 CreditsManager.Get.gameObject.SetActive(true);
                 CreditsManager.Get.RollCredits();
                 PennyManager.Get.UpdatePennysAndMedals();
-
-                foreach (PlayerObject po in PlayerManager.Get.players)
-                    HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.GameOver, (po.points * 10).ToString());
-
                 rounds[1].questionMesh.text = "";
                 rounds[1].categoryMesh.text = "";
                 currentStage++;

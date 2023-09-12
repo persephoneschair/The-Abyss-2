@@ -6,8 +6,27 @@ using UnityEngine;
 
 public static class EventLibrary
 {
-    public enum HostEventType { Default, Validate, Validated, SecondInstance, Leaderboard, PrepForQuestion, QuestionPacket, AnswerPacket, DataFields, Clear, GameOver, WrongApp, WRONGAPP };
-    public enum ClientEventType { Default, Answer };
+    public enum HostEventType
+    {
+        Default,
+        Validate,
+        Validated,
+        SecondInstance,
+
+        Information,
+        UpdateScore,
+
+        SimpleQuestion,
+        MultipleChoiceQuestion,
+        MultiSelectQuestion,
+
+        SingleAndMultiResult,
+
+        Leaderboard,
+        WrongApp,
+        WRONGAPP
+    };
+    public enum ClientEventType { Default, StoredValidation, SimpleQuestion, MultipleChoiceQuestion, MultiSelectQuestion };
 
     public static string GetHostEventTypeString(HostEventType e)
     {

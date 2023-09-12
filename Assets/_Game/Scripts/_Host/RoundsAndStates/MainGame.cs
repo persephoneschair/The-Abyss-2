@@ -27,7 +27,6 @@ public class MainGame : Round
                 animationRequired = true;
             c.ElevateBall(true);
         }
-        HostManager.Get.UpdateClientLeaderboards();
 
         if(animationRequired)
             yield return new WaitForSeconds(5f);
@@ -64,17 +63,14 @@ public class MainGame : Round
         questionLozengeAnim.SetTrigger("toggle");
         QuestionCounter.Get.UpdateQuestionNumber();
 
-        HostManager.Get.UpdateClientLeaderboards();
         for (int i = 0; i < 2; i++)
         {
             foreach (PlayerObject p in PlayerManager.Get.players)
             {
                 if (i == 0)
-                {
-                    HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.Clear, "");
                     p.lastFive = new bool[5];
-                }
-                HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.DataFields, $"<color=#9f9f9f15>--|{p.points}|{p.hotseatLives.ToString()}");
+
+                HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.UpdateScore, $"Points: {p.points}");
             }
             if (ColumnManager.Get.columns.Any(x => x.occupied && x.containedPlayer.hotseatLives < 3))
             {
@@ -82,6 +78,8 @@ public class MainGame : Round
                     c.ElevateBall(false);
                 yield return new WaitForSeconds(5f);
             }
+            foreach (Column c in ColumnManager.Get.columns)
+                c.SetConsecutiveLights(0);
         }
         ResetPlayerVariables();
         QuestionManager.nextQuestionIndex = 0;

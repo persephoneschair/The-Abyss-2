@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
 
     #endregion
 
+    public List<PlayerObject> pendingPlayers = new List<PlayerObject>();
     public List<PlayerObject> players = new List<PlayerObject>();
 
     [Header("Controls")]
@@ -115,7 +116,7 @@ public class PlayerManager : MonoBehaviour
         List<PlayerObject> playerDraw = new List<PlayerObject>();
         foreach (PlayerObject p in players.Where(x => !x.inHotseat && !x.justEliminated && x.verified))
         {
-            playerDraw.Add(p);
+            //playerDraw.Add(p);
             for (int i = 0; i < p.lastFive.Count(x => x); i++)
                 playerDraw.Add(p);
         }
@@ -135,8 +136,9 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !Round.entryDisabled);
         p.verified = true;
+        players.Add(p);
         LeaderboardManager.Get.PlayerHasJoined(p);
-        HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}");
-        HostManager.Get.UpdateClientLeaderboards();
+        HostManager.Get.SendPayloadToClient(p, EventLibrary.HostEventType.Validated, $"{p.playerName}|Points: {p.points.ToString()}|{p.twitchName}");
+        //HostManager.Get.UpdateClientLeaderboards();
     }
 }

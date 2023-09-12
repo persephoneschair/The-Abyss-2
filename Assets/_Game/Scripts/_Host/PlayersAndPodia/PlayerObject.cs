@@ -27,11 +27,11 @@ public class PlayerObject
     public string submission;
     public bool wasCorrect;
 
-    public PlayerObject(Player pl, string name)
+    public PlayerObject(Player pl)
     {
         playerClientRef = pl;
         otp = OTPGenerator.GenerateOTP();
-        playerName = name;
+        playerName = pl.Name;
         points = 0;
         lastFive = new bool[5];
     }
@@ -52,7 +52,7 @@ public class PlayerObject
             oldPlayer.playerName = playerName;
             oldPlayer.strap.PopulateStrap(oldPlayer, false);
             oldPlayer.cloneStrap.PopulateStrap(oldPlayer, true);
-            HostManager.Get.SendPayloadToClient(oldPlayer, EventLibrary.HostEventType.Validated, $"{oldPlayer.playerName}|{oldPlayer.points.ToString()}");
+            HostManager.Get.SendPayloadToClient(oldPlayer, EventLibrary.HostEventType.Validated, $"{oldPlayer.playerName}|{oldPlayer.points.ToString()}|{oldPlayer.twitchName}");
 
             otp = "";
             strap = null;
@@ -61,7 +61,7 @@ public class PlayerObject
             playerName = "";
 
             PlayerManager.Get.players.Remove(this);
-            HostManager.Get.UpdateClientLeaderboards();
+            //HostManager.Get.UpdateClientLeaderboards();
             return;
         }
         otp = "";
@@ -96,6 +96,7 @@ public class PlayerObject
         }
         else
             AudioManager.Get.Play(AudioManager.OneShotClip.LobbyLockIn);
-            
+
+        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.Information, "Answer received");
     }
 }

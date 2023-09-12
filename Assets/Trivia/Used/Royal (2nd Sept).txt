@@ -1,0 +1,263 @@
+{
+  "author": "royal_flush",
+  "cat1Qs": [
+    {
+      "category": "Closing Credits",
+      "question": "My Heart Will Go On, Celine Dion (1997)",
+      "singleStringAnswers": "Titanic"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "(Everything I Do) I Do It For You, Bryan Adams (1991)",
+      "singleStringAnswers": "Robin Hood: Prince of Thieves,Robin Hood Prince of Thieves,Prince of Thieves"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "Lose Yourself, Eminem (2002)",
+      "singleStringAnswers": "8 Mile,Eight Mile"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "Picture of You, Boyzone (1997)",
+      "singleStringAnswers": "Bean: The Ultimate Disaster Movie,Bean,Mr Bean"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "We Belong Together, Randy Newman (2010)",
+      "singleStringAnswers": "Toy Story 3"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "Back in Time, Huey Lewis and The News (1985)",
+      "singleStringAnswers": "Back to the Future"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "I Want to Spend My Lifetime Loving You, Tina Arena & Marc Anthony (1998)",
+      "singleStringAnswers": "The Mask of Zorro,Mask of Zorro"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "I2I, Tevin Campbell (1995)",
+      "singleStringAnswers": "A Goofy Movie"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "Kiss From a Rose, Seal (1995)",
+      "singleStringAnswers": "Batman Forever"
+    },
+    {
+      "category": "Closing Credits",
+      "question": "Where's Your Head At, Basement Jaxx (2001)",
+      "singleStringAnswers": "Lara Croft: Tomb Raider,Tomb Raider"
+    }
+  ],
+  "cat2Qs": [
+    {
+      "category": "A Little Light Opera",
+      "question": "Brigands in Cornwall",
+      "singleStringAnswers": "The Pirates of Penzance,Pirates of Penzance"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "2006 Take That single, the first of their comeback",
+      "singleStringAnswers": "Patience"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "'The Conjuror' - you may not recognise him without his apprentice...",
+      "singleStringAnswers": "The Sorcerer,Sorcerer"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "Legal proceedings in which a panel of your peers determine your guilt",
+      "singleStringAnswers": "Trial by Jury"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "If 'Paradise' branched out and went into business",
+      "singleStringAnswers": "Utopia Limited,Utopia Ltd"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "Bodyguard of a British monarch",
+      "singleStringAnswers": "The Yeomen of the Guard,Yeomen of the Guard"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "Traditionally Venetian oarsmen",
+      "singleStringAnswers": "The Gondoliers,Gondoliers"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "Though not very old in this instance, nor from York, he had 10,000 men",
+      "singleStringAnswers": "The Grand Duke"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "A boat named for a sleeveless garment worn as an apron",
+      "singleStringAnswers": "HMS Pinafore,H.M.S. Pinafore"
+    },
+    {
+      "category": "A Little Light Opera",
+      "question": "A pick-up sticks game originating in Europe",
+      "singleStringAnswers": "The Mikado,Mikado"
+    }
+  ],
+  "cat3Qs": [
+    {
+      "category": "US States",
+      "question": "3) Birmingham -> 2) Montgomery",
+      "singleStringAnswers": "Alabama"
+    },
+    {
+      "category": "US States",
+      "question": "3) San Jose -> 2) San Diego",
+      "singleStringAnswers": "California"
+    },
+    {
+      "category": "US States",
+      "question": "3) Tampa -> 2) Miami",
+      "singleStringAnswers": "Florida"
+    },
+    {
+      "category": "US States",
+      "question": "3) Bowling Green -> 2) Lexington",
+      "singleStringAnswers": "Kentucky"
+    },
+    {
+      "category": "US States",
+      "question": "3) Cranston -> 2) Warwick",
+      "singleStringAnswers": "Rhode Island"
+    },
+    {
+      "category": "US States",
+      "question": "3) Dallas -> 2) San Antonio",
+      "singleStringAnswers": "Texas"
+    },
+    {
+      "category": "US States",
+      "question": "3) West Jordan -> 2) West Valley City",
+      "singleStringAnswers": "Utah"
+    },
+    {
+      "category": "US States",
+      "question": "3) Green Bay -> 2) Madison",
+      "singleStringAnswers": "Wisconsin"
+    },
+    {
+      "category": "US States",
+      "question": "3) Allentown -> 2) Pittsburgh",
+      "singleStringAnswers": "Pennsylvania"
+    },
+    {
+      "category": "US States",
+      "question": "3) Bellevue -> 2) Lincoln",
+      "singleStringAnswers": "Nebraska"
+    }
+  ],
+  "cat4Qs": [
+    {
+      "category": "Season Eleven",
+      "question": "The interactive 'umbrella' show broadcast at https://twitch.tv/royal_flush that is currently in its eleventh season",
+      "singleStringAnswers": "Game Night"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "The eleventh month of the Gregorian calendar year",
+      "singleStringAnswers": "November"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "Disgraced disciple who betrayed Jesus, leaving the total disciple count at eleven",
+      "singleStringAnswers": "Judas Iscariot,Judas"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "Traditional bingo call for eleven",
+      "singleStringAnswers": "Legs eleven,Legs"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "Actress who plays Eleven in Stranger Things",
+      "singleStringAnswers": "Millie Bobby Brown,Millie Brown,Brown"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "On the eleventh day of Christmas, my true love gave to me eleven of these",
+      "singleStringAnswers": "Pipers piping,Pipers"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "The flag of Canada has an example of this with eleven points",
+      "singleStringAnswers": "Maple Leaf"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "1959 film, the first to win eleven Academy Awards",
+      "singleStringAnswers": "Ben-Hur,Ben Hur"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "Polygon with eleven sides",
+      "singleStringAnswers": "Hendecagon,Undecagon,Endecagon"
+    },
+    {
+      "category": "Season Eleven",
+      "question": "Footballer who wore the number eleven shirt when he won his first UEFA Champions League title with Real Madrid in 2014",
+      "singleStringAnswers": "Gareth Bale,Bale"
+    }
+  ],
+  "cat5Qs": [
+    {
+      "category": "Artists",
+      "question": "Mona Lisa (c.1503-1506)",
+      "singleStringAnswers": "Leonardo da Vinci,da Vinci"
+    },
+    {
+      "category": "Artists",
+      "question": "The Starry Night (1889)",
+      "singleStringAnswers": "Vincent van Gogh,van Gogh"
+    },
+    {
+      "category": "Artists",
+      "question": "The Night Watch (1642)",
+      "singleStringAnswers": "Rembrandt,Rembrandt van Rijn"
+    },
+    {
+      "category": "Artists",
+      "question": "Shot Marilyns (1964)",
+      "singleStringAnswers": "Andy Warhol,Warhol"
+    },
+    {
+      "category": "Artists",
+      "question": "Composition with Red, Blue and Yellow (1930)",
+      "singleStringAnswers": "Piet Mondrian,Mondrian"
+    },
+    {
+      "category": "Artists",
+      "question": "The Temptation of St. Anthony (1946)",
+      "singleStringAnswers": "Salvador Dalí,Salvador Dali,Dalí,Dali"
+    },
+    {
+      "category": "Artists",
+      "question": "A Girl with a Watering Can (1876)",
+      "singleStringAnswers": "Pierre-Auguste Renoir,Pierre Auguste Renoir,Renoir"
+    },
+    {
+      "category": "Artists",
+      "question": "Judith Beheading Holofernes (c.1598-1599)",
+      "singleStringAnswers": "Caravaggio"
+    },
+    {
+      "category": "Artists",
+      "question": "A Bar at the Folies-Bergère (1882)",
+      "singleStringAnswers": "Édouard Manet,Edouard Manet,Manet"
+    },
+    {
+      "category": "Artists",
+      "question": "Nighthawks (1942)",
+      "singleStringAnswers": "Edward Hopper,Hopper"
+    }
+  ]
+}

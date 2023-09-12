@@ -34,7 +34,7 @@ public class FinalGame : Round
 
             GameplayManager.Get.currentStage = GameplayManager.GameplayStage.RollCredits;
             foreach (PlayerObject pl in PlayerManager.Get.players)
-                HostManager.Get.SendPayloadToClient(pl, EventLibrary.HostEventType.Clear, "");
+                HostManager.Get.SendPayloadToClient(pl, EventLibrary.HostEventType.Information, $"GAME OVER\nYou earned {pl.points * PennyManager.Get.multiplyFactor} Pennys this game");
 
             foreach (Column c in ColumnManager.Get.columns.Where(x => x.occupied))
                 c.SetColumnColor(Column.MaterialChoice.ProfileTexture, Column.MaterialChoice.StandardColor);
@@ -80,7 +80,7 @@ public class FinalGame : Round
             GameplayManager.Get.currentStage = GameplayManager.GameplayStage.RollCredits;
 
             foreach (PlayerObject pl in PlayerManager.Get.players)
-                HostManager.Get.SendPayloadToClient(pl, EventLibrary.HostEventType.Clear, "");
+                HostManager.Get.SendPayloadToClient(pl, EventLibrary.HostEventType.Information, $"GAME OVER\nYou earned {pl.points * PennyManager.Get.multiplyFactor} Pennys this game");
         }
         else
         {
