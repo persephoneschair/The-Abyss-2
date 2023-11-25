@@ -122,6 +122,30 @@ public class HostManager : MonoBehaviour
                 TwitchManager.GetTwitchControl.testMessage = "";
                 break;
 
+            case EventLibrary.ClientEventType.PasteAlert:
+                //Silent alarm indicating some text has been pasted into an answer box
+                DebugLog.Print($"A PASTE ALERT WAS RAISED BY {p.playerName} ({p.twitchName}): {data}", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Purple);
+                string currentQ = "";
+                switch(GameplayManager.Get.currentRound)
+                {
+                    case GameplayManager.RoundType.None:
+                        currentQ = "No live question";
+                        break;
+
+                    case GameplayManager.RoundType.MainGame:
+                        if (GameplayManager.Get.rounds[0].currentQuestion != null)
+                            currentQ = GameplayManager.Get.rounds[0].currentQuestion.question;
+                        break;
+
+                    case GameplayManager.RoundType.FinalGame:
+                        if (GameplayManager.Get.rounds[1].currentQuestion != null)
+                            currentQ = GameplayManager.Get.rounds[1].currentQuestion.question;
+                        break;
+                }
+                PasteAlertEvent.Log(p, data ,currentQ);
+                EventLogger.PrintPasteLog();
+                break;
+
             default:
                 break;
         }

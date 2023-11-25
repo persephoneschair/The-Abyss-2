@@ -1,0 +1,263 @@
+{
+  "author": "marc_e54",
+  "cat1Qs": [
+    {
+      "category": "Countries by Monarch",
+      "question": "Pope Francis",
+      "singleStringAnswers": "Vatican City,Vatican,The Vatican"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "Emperor Naruhito",
+      "singleStringAnswers": "Japan"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "Queen Margrethe II",
+      "singleStringAnswers": "Denmark"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "King Felipe VI",
+      "singleStringAnswers": "Spain"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "Carl XVI Gustaf",
+      "singleStringAnswers": "Sweden"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "King Willem-Alexander",
+      "singleStringAnswers": "The Netherlands,Netherlands,Holland"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "Grand Duke Henri",
+      "singleStringAnswers": "Luxembourg"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "King Vajiralongkorn, a.k.a. Rama X",
+      "singleStringAnswers": "Thailand"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "Prince Albert II",
+      "singleStringAnswers": "Monaco"
+    },
+    {
+      "category": "Countries by Monarch",
+      "question": "King Mohammed VI",
+      "singleStringAnswers": "Morocco"
+    }
+  ],
+  "cat2Qs": [
+    {
+      "category": "Businesses in Media",
+      "question": "The Social Network",
+      "singleStringAnswers": "Facebook,The Facebook"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "Steve Jobs",
+      "singleStringAnswers": "Apple"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "Coco Before <BLANK>",
+      "singleStringAnswers": "Chanel"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "Air",
+      "singleStringAnswers": "Nike"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "Burt's Buzz",
+      "singleStringAnswers": "Burt's Bees"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "<BLANK>: The Greatest Party That Never Happened",
+      "singleStringAnswers": "Fyre Festival,Fyre,Fire Festival,Fire"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "The Founder",
+      "singleStringAnswers": "McDonald's,McDonalds"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "Painkiller",
+      "singleStringAnswers": "Purdue Pharma,Purdue,Oxycontin"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "The Wolf of Wall Street",
+      "singleStringAnswers": "Stratton Oakmont"
+    },
+    {
+      "category": "Businesses in Media",
+      "question": "<BLANK>: The Smartest Guys in the Room",
+      "singleStringAnswers": "Enron"
+    }
+  ],
+  "cat3Qs": [
+    {
+      "category": "Fine Meats",
+      "question": "Colloquially bangers, weiners, or dogs",
+      "singleStringAnswers": "Sausage,sausages"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Officially the Republic of Türkiye",
+      "singleStringAnswers": "Turkey"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "A grudge or argument",
+      "singleStringAnswers": "Beef"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Quickly avoid!",
+      "singleStringAnswers": "Duck"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "A downward cutting blow with the hand in karate",
+      "singleStringAnswers": "Chop"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Dangerous game involving opposing cars",
+      "singleStringAnswers": "Chicken"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Move sideways",
+      "singleStringAnswers": "Crab"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Philosophers Francis and Roger",
+      "singleStringAnswers": "Bacon"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "Cockney rhyming slang for deaf",
+      "singleStringAnswers": "Mutton"
+    },
+    {
+      "category": "Fine Meats",
+      "question": "E.g. Cricket - Don Bradman",
+      "singleStringAnswers": "Goat"
+    }
+  ],
+  "cat4Qs": [
+    {
+      "category": "'Down' Beats",
+      "question": "Down Under (1981)",
+      "singleStringAnswers": "Men at Work"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Don't Let The Sun Go Down On Me (1974)",
+      "singleStringAnswers": "Elton John"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "You Need to Calm Down (2019)",
+      "singleStringAnswers": "Taylor Swift,Swift"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Downtown (1965)",
+      "singleStringAnswers": "Petula Clark,Clark"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Get Down on It (1981)",
+      "singleStringAnswers": "Kool and the Gang,Cool and the Gang"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Burning Down The House (1983)",
+      "singleStringAnswers": "Talking Heads"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Drag Me Down (2015)",
+      "singleStringAnswers": "One Direction"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Upside Down (1980)",
+      "singleStringAnswers": "Diana Ross,Ross"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Don't Let Me Down (2016)",
+      "singleStringAnswers": "The Chainsmokers"
+    },
+    {
+      "category": "'Down' Beats",
+      "question": "Down with the Sickness (2000)",
+      "singleStringAnswers": "Disturbed"
+    }
+  ],
+  "cat5Qs": [
+    {
+      "category": "Primes",
+      "question": "KSI and Logan Paul's hydrating drinks range",
+      "singleStringAnswers": "Prime"
+    },
+    {
+      "category": "Primes",
+      "question": "Title for the Head of the Government of the UK",
+      "singleStringAnswers": "Prime Minister"
+    },
+    {
+      "category": "Primes",
+      "question": "A whole number greater than 1 that cannot be exactly divided by any whole number other than itself and 1",
+      "singleStringAnswers": "Prime number"
+    },
+    {
+      "category": "Primes",
+      "question": "Leader of the Autobots",
+      "singleStringAnswers": "Optimus Prime"
+    },
+    {
+      "category": "Primes",
+      "question": "Amazon's video-on-demand service",
+      "singleStringAnswers": "Prime Video"
+    },
+    {
+      "category": "Primes",
+      "question": "Zero degrees longitude",
+      "singleStringAnswers": "Prime meridian"
+    },
+    {
+      "category": "Primes",
+      "question": "Helen Mirren plays DCI Jane Tennison",
+      "singleStringAnswers": "Prime Suspect"
+    },
+    {
+      "category": "Primes",
+      "question": "2022- animated TV series produced by SEGA and Netflix",
+      "singleStringAnswers": "Sonic Prime"
+    },
+    {
+      "category": "Primes",
+      "question": "In the UK 1900 - 2300, in the US 2000 - 2300 Eastern/Pacific",
+      "singleStringAnswers": "Prime Time"
+    },
+    {
+      "category": "Primes",
+      "question": "A prime number that is one less than a power of two",
+      "singleStringAnswers": "Mersenne prime"
+    }
+  ]
+}

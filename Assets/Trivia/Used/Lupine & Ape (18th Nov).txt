@@ -1,0 +1,263 @@
+{
+  "author": "thelupineone",
+  "cat1Qs": [
+    {
+      "category": "Double Features",
+      "question": "ONE HUNDRED ______ OF GREY",
+      "singleStringAnswers": "SHADES"
+    },
+    {
+      "category": "Double Features",
+      "question": "4002: A _____ ODYSSEY",
+      "singleStringAnswers": "SPACE"
+    },
+    {
+      "category": "Double Features",
+      "question": "TWO FLEW OVER THE CUCKOO'S ____",
+      "singleStringAnswers": "NEST"
+    },
+    {
+      "category": "Double Features",
+      "question": "AROUND THE _____ IN 160 DAYS",
+      "singleStringAnswers": "WORLD"
+    },
+    {
+      "category": "Double Features",
+      "question": "____, STOCK AND FOUR SMOKING BARRELS",
+      "singleStringAnswers": "LOCK"
+    },
+    {
+      "category": "Double Features",
+      "question": "____ IN 120 SECONDS",
+      "singleStringAnswers": "GONE"
+    },
+    {
+      "category": "Double Features",
+      "question": "FOURTEEN YEARS IN _____",
+      "singleStringAnswers": "TIBET"
+    },
+    {
+      "category": "Double Features",
+      "question": "THE ______ OF PELHAM 246",
+      "singleStringAnswers": "TAKING"
+    },
+    {
+      "category": "Double Features",
+      "question": "HOW TO LOSE A ___ IN 20 DAYS",
+      "singleStringAnswers": "GUY"
+    },
+    {
+      "category": "Double Features",
+      "question": "16 _____ IN A DUFFEL BAG",
+      "singleStringAnswers": "HEADS"
+    }
+  ],
+  "cat2Qs": [
+    {
+      "category": "States by Their Sights",
+      "question": "Hollywood, Pier 39, Golden Gate Bridge",
+      "singleStringAnswers": "California"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Long Island, National Baseball Hall of Fame and Museum, Empire State Building",
+      "singleStringAnswers": "New York"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Black Rock Desert, Sphere, Las Vegas Strip",
+      "singleStringAnswers": "Nevada"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Pearl Harbor National Memorial, Kauai Museum, Alexander & Baldwin Sugar Museum",
+      "singleStringAnswers": "Hawaii,Hawai'i"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Kennedy Space Center, Everglades, Key West",
+      "singleStringAnswers": "Florida"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Rock City, World of Coca-Cola, Martin Luther King Jr. National Historical Park",
+      "singleStringAnswers": "Georgia"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Lambeau Field, Harley-Davidson Museum, Noah's Ark WaterPark",
+      "singleStringAnswers": "Wisconsin"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Mall of America, Spoonbridge and Cherry, Chippewa National Forest",
+      "singleStringAnswers": "Minnesota"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Myrtle Beach, Brookgreen Gardens, Fort Sumter",
+      "singleStringAnswers": "South Carolina"
+    },
+    {
+      "category": "States by Their Sights",
+      "question": "Antelope Canyon, Horseshoe Bend, Kofa National Wildlife Refuge",
+      "singleStringAnswers": "Arizona"
+    }
+  ],
+  "cat3Qs": [
+    {
+      "category": "Featured in Fortnite",
+      "question": "Her UK Number One singles include 'thank u, next', '7 Rings' and 'break up with your girlfriend, i’m bored'",
+      "singleStringAnswers": "Ariana Grande,Grande"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Protagonist of the Tomb Raider series of video games",
+      "singleStringAnswers": "Lara Croft,Lara,Croft"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "In Marvel Comics, the genius inventor who created and wore the Iron Man suit",
+      "singleStringAnswers": "Tony Stark,Stark"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Played by Sigourney Weaver in the 1979 movie 'Alien'",
+      "singleStringAnswers": "Ellen Ripley,Ripley"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Kansas City Chiefs quarterback, MVP of Super Bowl LIV and LVII",
+      "singleStringAnswers": "Patrick Mahomes,Pat Mahomes,Mahomes"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "In 'Futurama,' he was frozen on New Year's Eve 1999 and defrosted a thousand years later",
+      "singleStringAnswers": "Philip J Fry,Philip Fry,Fry"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Awarded the Golden Boot for scoring the most goals at the 2018 FIFA World Cup",
+      "singleStringAnswers": "Harry Kane,Kane"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Numerical 'Stranger Things' character played by Millie Bobby Brown",
+      "singleStringAnswers": "Eleven,Jane Hopper,Hopper,11"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Screen name of Tyler Blevins, professional gamer and streamer",
+      "singleStringAnswers": "Ninja"
+    },
+    {
+      "category": "Featured in Fortnite",
+      "question": "Women's snowboard halfpipe gold medalist at both the 2018 and 2022 Winter Olympic Games",
+      "singleStringAnswers": "Chloe Kim,Kim"
+    }
+  ],
+  "cat4Qs": [
+    {
+      "category": "'C' is for...",
+      "question": "Usually orange vegetable said to be good for your eyes on account of its vitamin A content",
+      "singleStringAnswers": "Carrot,Carrots"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Playing field of tennis or basketball",
+      "singleStringAnswers": "Court,Courts"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Chemical element with forms including graphite and diamond",
+      "singleStringAnswers": "Carbon"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Dog breed of which Queen Elizabeth II had a fondness",
+      "singleStringAnswers": "Corgi,Corgis"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Wrote, produced, directed and starred in films such as 'The Gold Rush' and 'Modern Times'",
+      "singleStringAnswers": "Charlie Chaplin,Chaplin"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Coming in 'robusto' and 'Churchill' sizes, humidors keep these moist",
+      "singleStringAnswers": "Cigars,Cigar"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Nation with Khmer as the official language",
+      "singleStringAnswers": "Cambodia"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Only Irish province name NOT to end with the letter 'R'",
+      "singleStringAnswers": "Connacht,Connaught"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Parodic prize once awarded by Building Design magazine to 'the ugliest building in the UK completed in the last 12 months'",
+      "singleStringAnswers": "Carbuncle Cup,Carbuncle"
+    },
+    {
+      "category": "'C' is for...",
+      "question": "Spiked plates worn on the feet of ice climbers",
+      "singleStringAnswers": "Crampons,Crampon"
+    }
+  ],
+  "cat5Qs": [
+    {
+      "category": "Flower Power",
+      "question": "Duplicate a flower of remembrance?",
+      "singleStringAnswers": "COPY POPPY,poppy copy"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Romantic flower assuming a stance in yoga?",
+      "singleStringAnswers": "ROSE POSE,pose rose"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Foggy flower used in chains?",
+      "singleStringAnswers": "HAZY DAISY,daisy hazy"
+    },
+    {
+      "category": "Flower Power",
+      "question": "TV test episode about a blueish-purple bloom?",
+      "singleStringAnswers": "VIOLET PILOT,pilot violet"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Clownish flower of the valley?",
+      "singleStringAnswers": "SILLY LILY,lily silly"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Minty cocktail served in Holland’s Keukenhof garden?",
+      "singleStringAnswers": "TULIP JULEP,julep tulip"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Scotland's national flower, used as a projectile?",
+      "singleStringAnswers": "THISTLE MISSILE,missile thistle"
+    },
+    {
+      "category": "Flower Power",
+      "question": "The rate at which the price of the clove pink (or tinned milk) is increasing?",
+      "singleStringAnswers": "CARNATION INFLATION,inflation carnation"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Organism infecting a subject painted by Van Gogh?",
+      "singleStringAnswers": "IRIS VIRUS,virus iris"
+    },
+    {
+      "category": "Flower Power",
+      "question": "Scavenge for the herb also known as the starflower?",
+      "singleStringAnswers": "FORAGE BORAGE,borage forage"
+    }
+  ]
+}

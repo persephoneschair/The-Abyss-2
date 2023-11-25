@@ -288,8 +288,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59405805}
-  - component: {fileID: 59405806}
   - component: {fileID: 59405807}
+  - component: {fileID: 59405806}
   m_Layer: 0
   m_Name: Operator
   m_TagString: Untagged
@@ -325,10 +325,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testMode: 1
   skipOpeningTitles: 1
-  fastValidation: 0
+  fastValidation: 1
   recoveryMode: 0
   playerLimit: 40
-  questionPack: {fileID: 4900000, guid: aa6685e9630c95b46a3b672d7fa89aba, type: 3}
+  questionPack: {fileID: 4900000, guid: 1ac4275e9610f7b41a4befefd95ff828, type: 3}
   forceUpdateNextQuestionIndex: 0
   nextQuestionIndex: 0
 --- !u!114 &59405807
@@ -34127,24 +34127,26 @@ MonoBehaviour:
 
     Josh Halbur
 
-    Sam Johnson
+    Ben Lathbury
+
+    Jon Lock
+
+    Alex Richards
+
+    Lewis
+    Tough'
+  - '<color=red><size=50%>Question Writers</size></color>
+
+    <color=blue>Marc E
+
+    Josh
+    Halbur
 
     Ben Lathbury
 
     Jon Lock
 
-    Alex
-    Richards
-
-    Lewis Tough'
-  - '<color=red><size=50%>Question Writers</size></color>
-
-    <color=blue>Innis
-    Carson
-
-    Sam Johnson
-
-    Ben Lathbury'
+    Edwin Simon'
   - '<color=red><size=50%>Network Controller</size></color>
 
     <color=blue>Ashley

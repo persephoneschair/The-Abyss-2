@@ -35,8 +35,12 @@ public static class QuestionManager
 
     public static void CompilePlayOrders()
     {
-        int[] mainGameOrder = new int[8] { 0, 1, 2, 3, 4, 5, 6, 7 };
+        //Ugly ass code to force the easiest question to appear first
+        List<int> mainGameOrder = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
         mainGameOrder.Shuffle();
+        mainGameOrder.Add(0);
+        mainGameOrder.Reverse();
+
         for(int i = 0; i < 8; i++)
         {
             List<Question> questionBlock = new List<Question>
@@ -50,6 +54,9 @@ public static class QuestionManager
             questionBlock.Shuffle();
             mainGameQuestions.AddRange(questionBlock);
         }
+
+        /*for (int i = 0; i < 5; i++)
+            Debug.Log(mainGameQuestions[i].question);*/
 
         int[] endGameOrder = new int[2] { 8, 9 };
         endGameOrder.Shuffle();
