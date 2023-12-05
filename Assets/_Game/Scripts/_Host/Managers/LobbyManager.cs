@@ -22,7 +22,7 @@ public class LobbyManager : MonoBehaviour
     public TextMeshProUGUI welcomeMessageMesh;
     public Animator lobbyCodeAnim;
     private const string welcomeMessage = "Welcome to <font=AbyssSurface><color=blue>The Abyss</color></font>\nPlaying on a mobile device? Scan the QR code:\n\n\n\n\nOn a desktop or laptop? Please visit:\n<color=yellow>https://persephoneschair.itch.io/gamenight</color>\n<size=350%><color=green>[ABCD]</color>";
-    private const string permaMessage = "Join the game at <color=yellow>https://persephoneschair.itch.io/abyss</color> using the room code <color=green>[ABCD]</color>";
+    private const string permaMessage = "Join the game at <color=yellow>https://persephoneschair.itch.io/gamenight</color> using the room code <color=green>[ABCD]</color>";
 
     public Animator permaCodeAnim;
     public TextMeshProUGUI permaCodeMesh;
